@@ -1,0 +1,16 @@
+header#main_header{
+  background: gray;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .left, .right{
+    padding: 10px;
+  }
+
+  .nav_item{
+    background: white;
+    border-radius: 3px;
+    padding: 5px 8px;
+  }
+}
