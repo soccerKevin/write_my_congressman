@@ -1,12 +1,3 @@
-# alias :orig_require :require
-# def require s
-#   if orig_require s
-#     print "Requires #{s}\n"
-#   else
-#     print "tried to get #{s}\n"
-#   end
-# end
-
 require 'pp'
 require 'pry'
 Dir['./lib/tasks/legislators/*.rb'].each{ |file| require file }
