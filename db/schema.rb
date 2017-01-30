@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170123081048) do
+ActiveRecord::Schema.define(version: 20170130055935) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "line"
@@ -46,6 +46,10 @@ ActiveRecord::Schema.define(version: 20170123081048) do
   end
 
   add_index "legislators", ["last_name"], name: "index_legislators_on_last_name"
+
+  create_table "phones", force: :cascade do |t|
+    t.string "number"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
