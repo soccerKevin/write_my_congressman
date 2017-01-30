@@ -11,6 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'slim-rails'
 gem 'devise'
 gem 'httparty'
+gem 'phone'
 
 group :development, :test do
   gem 'byebug'
