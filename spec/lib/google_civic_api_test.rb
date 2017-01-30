@@ -50,7 +50,7 @@ RSpec.describe Officials do
     end
   end
 
-  describe 'sanitize_address'
+  describe 'sanitize_address' do
     it 'should handle a proper string address' do
 
     end

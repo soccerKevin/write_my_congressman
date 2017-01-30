@@ -4,7 +4,7 @@ require 'httparty'
 require 'street_address'
 require_relative '../vendor_api/google_civic_api.rb'
 
-namespace :google_civic
+namespace :google_civic do
   task :get_address, [:address] => :environment do |t, args|
     include VendorAPI
     address = args[:address]
@@ -14,10 +14,10 @@ namespace :google_civic
   end
 
 
-  task update_fixtures: :envoronment do
-    api_key = Rails.application.secrets.google_civics_api_key
-    root = 'https://www.googleapis.com/civicinfo/v2'
-    response = HTTParty.get "#{@@ROOT}/representatives?#{query}"
+  task update_fixtures: :environment do
+    include VendorAPI
+    address ||= "465 Andover Court, Gurnee, IL 60031"
+    response = GoogleCivic::Officials.get_from_address(address).to_s.gsub '=>', ':'
     File.open('./spec/fixtures/google_civic_response.json', 'w'){ |f| f.write response }
   end
 end
