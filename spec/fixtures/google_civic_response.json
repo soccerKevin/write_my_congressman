@@ -1,0 +1,396 @@
+{
+  "kind" => "civicinfo#representativeInfoResponse", "normalizedInput" => {
+    "line1" => "465 Andover Drive", "city" => "Gurnee", "state" => "IL", "zip" => "60031"
+  }, "divisions" => {
+    "ocd-division/country:us/state:il/county:lake" => {
+      "name" => "Lake County", "officeIndices" => [6, 7, 8, 9, 10, 11, 12, 13]
+    }, "ocd-division/country:us" => {
+      "name" => "United States", "officeIndices" => [0, 1]
+    }, "ocd-division/country:us/state:il" => {
+      "name" => "Illinois", "officeIndices" => [2, 4, 5, 14, 15, 16, 17]
+    }, "ocd-division/country:us/state:il/cd:10" => {
+      "name" => "Illinois's 10th congressional district", "officeIndices" => [3]
+    }
+  }, "offices" => [{
+    "name" => "President of the United States",
+    "divisionId" => "ocd-division/country:us",
+    "levels" => ["country"],
+    "roles" => ["headOfState", "headOfGovernment"],
+    "officialIndices" => [0]
+  }, {
+    "name" => "Vice-President of the United States",
+    "divisionId" => "ocd-division/country:us",
+    "levels" => ["country"],
+    "roles" => ["deputyHeadOfGovernment"],
+    "officialIndices" => [1]
+  }, {
+    "name" => "United States Senate",
+    "divisionId" => "ocd-division/country:us/state:il",
+    "levels" => ["country"],
+    "roles" => ["legislatorUpperBody"],
+    "officialIndices" => [2, 3]
+  }, {
+    "name" => "United States House of Representatives IL-10",
+    "divisionId" => "ocd-division/country:us/state:il/cd:10",
+    "levels" => ["country"],
+    "roles" => ["legislatorLowerBody"],
+    "officialIndices" => [4]
+  }, {
+    "name" => "Governor",
+    "divisionId" => "ocd-division/country:us/state:il",
+    "levels" => ["administrativeArea1"],
+    "roles" => ["headOfGovernment"],
+    "officialIndices" => [5]
+  }, {
+    "name" => "Lieutenant Governor",
+    "divisionId" => "ocd-division/country:us/state:il",
+    "levels" => ["administrativeArea1"],
+    "roles" => ["deputyHeadOfGovernment"],
+    "officialIndices" => [6]
+  }, {
+    "name" => "Coroner",
+    "divisionId" => "ocd-division/country:us/state:il/county:lake",
+    "officialIndices" => [7]
+  }, {
+    "name" => "Sheriff",
+    "divisionId" => "ocd-division/country:us/state:il/county:lake",
+    "officialIndices" => [8]
+  }, {
+    "name" => "Treasurer",
+    "divisionId" => "ocd-division/country:us/state:il/county:lake",
+    "officialIndices" => [9]
+  }, {
+    "name" => "County Clerk",
+    "divisionId" => "ocd-division/country:us/state:il/county:lake",
+    "officialIndices" => [10]
+  }, {
+    "name" => "State's Attorney",
+    "divisionId" => "ocd-division/country:us/state:il/county:lake",
+    "officialIndices" => [11]
+  }, {
+    "name" => "County Recorder Of Deeds",
+    "divisionId" => "ocd-division/country:us/state:il/county:lake",
+    "officialIndices" => [12]
+  }, {
+    "name" => "County Circuit Court Clerk",
+    "divisionId" => "ocd-division/country:us/state:il/county:lake",
+    "officialIndices" => [13]
+  }, {
+    "name" => "Regional Superintendent of Schools",
+    "divisionId" => "ocd-division/country:us/state:il/county:lake",
+    "officialIndices" => [14]
+  }, {
+    "name" => "State Treasurer",
+    "divisionId" => "ocd-division/country:us/state:il",
+    "officialIndices" => [15]
+  }, {
+    "name" => "Attorney General",
+    "divisionId" => "ocd-division/country:us/state:il",
+    "officialIndices" => [16]
+  }, {
+    "name" => "State Comptroller",
+    "divisionId" => "ocd-division/country:us/state:il",
+    "officialIndices" => [17]
+  }, {
+    "name" => "Secretary of State",
+    "divisionId" => "ocd-division/country:us/state:il",
+    "officialIndices" => [18]
+  }], "officials" => [{
+    "name" => "Donald J. Trump",
+    "address" => [{
+      "line1" => "The White House",
+      "line2" => "1600 Pennsylvania Avenue NW",
+      "city" => "Washington",
+      "state" => "DC",
+      "zip" => "20500"
+    }],
+    "party" => "Republican",
+    "phones" => ["(202) 456-1111"],
+    "urls" => ["http://www.whitehouse.gov/"],
+    "channels" => [{
+      "type" => "GooglePlus",
+      "id" => "+whitehouse"
+    }, {
+      "type" => "Facebook",
+      "id" => "whitehouse"
+    }, {
+      "type" => "Twitter",
+      "id" => "whitehouse"
+    }]
+  }, {
+    "name" => "Mike Pence",
+    "address" => [{
+      "line1" => "The White House",
+      "line2" => "1600 Pennsylvania Avenue NW",
+      "city" => "Washington",
+      "state" => "DC",
+      "zip" => "20500"
+    }],
+    "party" => "Republican",
+    "phones" => ["(202) 456-1111"],
+    "urls" => ["http://www.whitehouse.gov/"],
+    "channels" => [{
+      "type" => "GooglePlus",
+      "id" => "+whitehouse"
+    }, {
+      "type" => "Facebook",
+      "id" => "whitehouse"
+    }, {
+      "type" => "Twitter",
+      "id" => "whitehouse"
+    }]
+  }, {
+    "name" => "Tammy Duckworth",
+    "address" => [{
+      "line1" => "G12 Dirksen Senate Office Building",
+      "city" => "Washington",
+      "state" => "DC",
+      "zip" => "20510"
+    }],
+    "party" => "Democratic",
+    "urls" => ["https://www.duckworth.senate.gov"],
+    "channels" => [{
+      "type" => "Twitter",
+      "id" => "RepDuckworth"
+    }, {
+      "type" => "Facebook",
+      "id" => "CongresswomanTammyDuckworth"
+    }, {
+      "type" => "YouTube",
+      "id" => "UCYRWRvUxtjaHnFMCbdd94tg"
+    }]
+  }, {
+    "name" => "Richard J. Durbin",
+    "address" => [{
+      "line1" => "711 Hart Senate Bldg.",
+      "city" => "Washington",
+      "state" => "DC",
+      "zip" => "20510"
+    }],
+    "party" => "Democratic",
+    "phones" => ["(202) 224-2152"],
+    "urls" => ["http://www.durbin.senate.gov/public/"],
+    "photoUrl" => "http://durbin.senate.gov/imo/media/image/durbin.jpg",
+    "channels" => [{
+      "type" => "Facebook",
+      "id" => "SenatorDurbin"
+    }, {
+      "type" => "Twitter",
+      "id" => "SenatorDurbin"
+    }, {
+      "type" => "YouTube",
+      "id" => "SenatorDurbin"
+    }]
+  }, {
+    "name" => "Bradley Scott Schneider",
+    "address" => [{
+      "line1" => "1432 Longworth House Office Building",
+      "city" => "Washington",
+      "state" => "DC",
+      "zip" => "20515"
+    }],
+    "party" => "Democratic",
+    "phones" => ["(202) 225-4835"],
+    "urls" => ["https://schneider.house.gov/"],
+    "photoUrl" => "http://bioguide.congress.gov/bioguide/photo/S/S001190.jpg",
+    "channels" => [{
+      "type" => "Twitter",
+      "id" => "Schneider4IL10"
+    }]
+  }, {
+    "name" => "Bruce Rauner",
+    "address" => [{
+      "line1" => "Office of the Governor 207 State House",
+      "city" => "Springfield",
+      "state" => "IL",
+      "zip" => "62706"
+    }],
+    "party" => "Republican",
+    "phones" => ["(217) 782-0244", "(888) 261-3336", "(312) 814-2121"],
+    "urls" => ["http://www.illinois.gov/gov/"],
+    "photoUrl" => "http://www.illinois.gov/gov/SiteCollectionImages/GovRauner.jpg",
+    "channels" => [{
+      "type" => "YouTube",
+      "id" => "brucerauner"
+    }, {
+      "type" => "Facebook",
+      "id" => "GovRauner"
+    }, {
+      "type" => "Twitter",
+      "id" => "GovRauner"
+    }]
+  }, {
+    "name" => "Evelyn Sanguinetti",
+    "address" => [{
+      "line1" => "Office of the Lt. Governor 214 State House",
+      "city" => "Springfield",
+      "state" => "IL",
+      "zip" => "62706"
+    }],
+    "party" => "Republican",
+    "phones" => ["(217) 558-3085", "(217) 717-2331", "(312) 814-5240", "(217) 717-2331"],
+    "urls" => ["http://www.illinois.gov/ltg/Pages/default.aspx"],
+    "photoUrl" => "http://www.illinois.gov/ltg/about/PublishingImages/Lt-Governor.jpg",
+    "channels" => [{
+      "type" => "Twitter",
+      "id" => "evelynetti"
+    }, {
+      "type" => "Twitter",
+      "id" => "LtGovEvelyn"
+    }, {
+      "type" => "Facebook",
+      "id" => "1558829541025779"
+    }]
+  }, {
+    "name" => "Thomas A Rudd",
+    "address" => [{
+      "line1" => "26 N. Martin L. King Jr. Ave",
+      "city" => "Waukegan",
+      "state" => "IL",
+      "zip" => "60085"
+    }],
+    "party" => "Unknown",
+    "phones" => ["(847) 377-2200"],
+    "urls" => ["http://www.lakecountyil.gov/Coroner/Pages/default.aspx"]
+  }, {
+    "name" => "Mark Curran",
+    "address" => [{
+      "line1" => "Sheriff Mark Curran Jr.",
+      "line2" => "25 S. Martin Luther King Jr Ave",
+      "city" => "Waukegan",
+      "state" => "IL",
+      "zip" => "60085"
+    }],
+    "party" => "Unknown",
+    "phones" => ["(847) 377-4000"],
+    "urls" => ["http://www.lakecountyil.gov/Sheriff/Pages/default.aspx"]
+  }, {
+    "name" => "David B. Stolman",
+    "address" => [{
+      "line1" => "18 N. County St.,",
+      "city" => "Waukegan",
+      "state" => "IL",
+      "zip" => "60085"
+    }],
+    "party" => "Unknown",
+    "phones" => ["(847) 377-2323"],
+    "urls" => ["http://www.lakecountyil.gov/Treasurer/Pages/default.aspx"],
+    "emails" => ["Treasurer@lakecountyil.gov"]
+  }, {
+    "name" => "Carla Wyckoff",
+    "address" => [{
+      "line1" => "18 N. County Street,",
+      "city" => "Waukegan",
+      "state" => "IL",
+      "zip" => "60085"
+    }],
+    "party" => "Unknown",
+    "phones" => ["(847) 377-2400"],
+    "urls" => ["http://countyclerk.lakecountyil.gov/Pages/Welcome.aspx"],
+    "emails" => ["CountyClerk@lakecountyil.gov"]
+  }, {
+    "name" => "Michael Nerheim",
+    "address" => [{
+      "line1" => "18 N. County Street",
+      "line2" => "3rd Floor",
+      "city" => "Waukegan",
+      "state" => "IL",
+      "zip" => "60085"
+    }],
+    "party" => "Unknown",
+    "phones" => ["(847) 377-3000"],
+    "urls" => ["http://lcsao.org/"],
+    "emails" => ["statesattorney@lakecountyil.gov"],
+    "channels" => [{
+      "type" => "Facebook",
+      "id" => "lakecountyilsao"
+    }, {
+      "type" => "Twitter",
+      "id" => "saolakecountyil"
+    }]
+  }, {
+    "name" => "Mary Ellen Vanderventer",
+    "address" => [{
+      "line1" => "18 N County St - 6th Floor",
+      "city" => "Waukegan",
+      "state" => "IL",
+      "zip" => "60085"
+    }],
+    "party" => "Unknown",
+    "phones" => ["(847) 377-2575"],
+    "urls" => ["http://www.lakecountyil.gov/Recorder/Pages/default.aspx"],
+    "emails" => ["recorder@lakecountyil.gov"]
+  }, {
+    "name" => "Keith Brin",
+    "address" => [{
+      "line1" => "18 N. County St.,",
+      "city" => "Waukegan",
+      "state" => "IL",
+      "zip" => "60085"
+    }],
+    "party" => "Unknown",
+    "phones" => ["(847) 377-3380"],
+    "urls" => ["http://www.lakecountyil.gov/CircuitClerk/Pages/default.aspx"],
+    "emails" => ["CircuitClerk@lakecountyil.gov"]
+  }, {
+    "name" => "Roycealee Wood",
+    "address" => [{
+      "line1" => "800 Lancer Lane",
+      "line2" => "Suite E-128",
+      "city" => "Grayslake",
+      "state" => "IL",
+      "zip" => "60030"
+    }],
+    "party" => "Unknown",
+    "phones" => ["(847) 543-7833"],
+    "urls" => ["http://www.lake.k12.il.us/"]
+  }, {
+    "name" => "Michael W. Frerichs",
+    "address" => [{
+      "line1" => "Capitol Building 219 Statehouse",
+      "city" => "Springfield",
+      "state" => "IL",
+      "zip" => "62706"
+    }],
+    "party" => "Democratic",
+    "urls" => ["http://www.treasurer.il.gov/"]
+  }, {
+    "name" => "Lisa Madigan",
+    "address" => [{
+      "line1" => "500 South Second Street",
+      "city" => "Springfield",
+      "state" => "IL",
+      "zip" => "62706"
+    }],
+    "party" => "Democratic",
+    "phones" => ["(217) 782-1090"],
+    "urls" => ["http://www.illinoisattorneygeneral.gov/"],
+    "channels" => [{
+      "type" => "Twitter",
+      "id" => "ILattygeneral"
+    }]
+  }, {
+    "name" => "Susana Mendoza",
+    "address" => [{
+      "line1" => "325 West Adams",
+      "city" => "Springfield",
+      "state" => "IL",
+      "zip" => "62704"
+    }],
+    "party" => "Democratic",
+    "phones" => ["(217) 782-6000"],
+    "urls" => ["http://www.ioc.state.il.us/"],
+    "emails" => ["comptroller@mail.ioc.state.il.us"]
+  }, {
+    "name" => "Jesse White",
+    "address" => [{
+      "line1" => "213 State Capitol",
+      "city" => "Springfield",
+      "state" => "IL",
+      "zip" => "62756"
+    }],
+    "party" => "Democratic",
+    "phones" => ["(800) 252-8980"],
+    "urls" => ["http://www.cyberdriveillinois.com/"]
+  }]
+}

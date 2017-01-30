@@ -4,8 +4,10 @@ require 'httparty'
 require 'street_address'
 require_relative '../vendor_api/google_civic_api.rb'
 
-task :get_address => :environment do
+task :get_address, [:address] => :environment do |t, args|
   include VendorAPI
-  address = StreetAddress::US.parse("14531 31st ave ne Seattle, WA, 98155")
-  pp GoogleCivic.get_from_address address
+  address = args[:address]
+  address ||= "465 Andover Court, Gurnee, IL 60031"
+  street_address = StreetAddress::US.parse address
+  pp GoogleCivic::Officials.names_from_address street_address
 end
