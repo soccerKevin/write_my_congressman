@@ -5,7 +5,6 @@ class CreateAddress < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.string :zip
-      t.string :country
     end
   end
 end

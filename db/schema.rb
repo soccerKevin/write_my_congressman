@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20170130055935) do
     t.string "city"
     t.string "state"
     t.string "zip"
-    t.string "country"
   end
 
   create_table "legislators", force: :cascade do |t|
