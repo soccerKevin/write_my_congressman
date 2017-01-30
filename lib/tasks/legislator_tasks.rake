@@ -2,13 +2,15 @@ require 'pp'
 require 'pry'
 Dir['./lib/tasks/legislators/*.rb'].each{ |file| require file }
 
-task create_legislators: :environment do
-  create_legislators
-end
+namespace :legislators do
+  task create_legislators: :environment do
+    create_legislators
+  end
 
-task reset_legislators: :environment do
-  Legislator.destroy_all
-  create_legislators
+  task reset_legislators: :environment do
+    Legislator.destroy_all
+    create_legislators
+  end
 end
 
 def create_legislators
