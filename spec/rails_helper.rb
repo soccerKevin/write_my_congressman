@@ -55,3 +55,9 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+
+def fixture(file)
+  root = "./spec/fixtures"
+  File.open("#{root}/#{file}", 'r').read
+end
