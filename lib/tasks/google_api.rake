@@ -13,7 +13,6 @@ namespace :google_civic do
     pp GoogleCivic::Officials.names_from_address street_address
   end
 
-
   task update_fixtures: :environment do
     include VendorAPI
     address ||= "465 Andover Court, Gurnee, IL 60031"

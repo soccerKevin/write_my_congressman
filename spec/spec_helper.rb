@@ -99,4 +99,8 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  def pass
+    expect(true).to eq true
+  end
+
 end

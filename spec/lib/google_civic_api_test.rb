@@ -20,14 +20,17 @@ def json_response
 end
 
 RSpec.describe Officials do
-  before :each do
-    stub_requests
+  before :all do
     @address = "465 Andover Court, Gurnee, IL 60031"
     @whitelisted_names = ["Donald J. Trump", "Mike Pence", "Tammy Duckworth", "Richard J. Durbin", "Bradley Scott Schneider"]
 
     class Officials
       @@ROOT = 'https://www.test.com/'
     end
+  end
+
+  before :each do
+    stub_requests
   end
 
   describe 'get methods' do
@@ -52,10 +55,22 @@ RSpec.describe Officials do
 
   describe 'sanitize_address' do
     it 'should handle a proper string address' do
-
+      address = Officials.send :sanitize_address, @address
+      expect(address.class.name).to eq "StreetAddress::US::Address"
     end
-  end
 
-  it 'whitelist_legislators' do
+    it 'should handle a StreetAddress' do
+      address = Officials.send :sanitize_address, StreetAddress::US.parse(@address)
+      expect(address.class.name).to eq "StreetAddress::US::Address"
+    end
+
+    it 'should not allow anything else' do
+      begin
+        Officials.send :sanitize_address, "Teenage Mutant Ninja Turtles, Turtles in a half shell"
+        fail
+       rescue
+        pass
+      end
+    end
   end
 end
