@@ -3,9 +3,9 @@ require 'pry'
 
 class Phone < ActiveRecord::Base
   Phoner::Phone.default_country_code = '1'
-  validate :phoner_validate
+  validate :validate_number
 
-  def phoner_validate
-    Phoner::Phone.valid? number
+  def validate_number
+    raise "Invalid Phone Number" unless Phoner::Phone.valid? number
   end
 end
