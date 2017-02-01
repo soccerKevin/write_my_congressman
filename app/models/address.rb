@@ -1,4 +1,9 @@
+require 'pry'
+
 class Address < ActiveRecord::Base
+  belongs_to :legislator
+  validates :line, :city, :state, :zip, presence: true
+
   class << self
     def from_line(address)
       a = address.is_a?(StreetAddress::US::Address) ? address : StreetAddress::US.parse(address)
@@ -15,4 +20,5 @@ class Address < ActiveRecord::Base
 
     alias :from_street_address :from_line
   end
+
 end

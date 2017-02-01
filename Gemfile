@@ -12,6 +12,7 @@ gem 'slim-rails'
 gem 'devise'
 gem 'httparty'
 gem 'phone'
+gem 'StreetAddress', :require => "street_address", git: 'https://github.com/derrek/street-address'
 
 group :development, :test do
   gem 'byebug'
@@ -25,6 +26,5 @@ group :development do
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'StreetAddress', :require => "street_address"
 end
 

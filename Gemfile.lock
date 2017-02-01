@@ -1,7 +1,12 @@
+GIT
+  remote: https://github.com/derrek/street-address
+  revision: e81768dacec5b889c751b093cf6796cb5fb7b0e4
+  specs:
+    StreetAddress (2.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    StreetAddress (1.0.6)
     actionmailer (4.2.7.1)
       actionpack (= 4.2.7.1)
       actionview (= 4.2.7.1)
@@ -206,7 +211,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  StreetAddress
+  StreetAddress!
   better_errors
   binding_of_caller
   byebug

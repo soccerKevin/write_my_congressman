@@ -3,11 +3,11 @@ require 'pry'
 Dir['./lib/tasks/legislators/*.rb'].each{ |file| require file }
 
 namespace :legislators do
-  task create_legislators: :environment do
+  task create: :environment do
     create_legislators
   end
 
-  task reset_legislators: :environment do
+  task reset: :environment do
     Legislator.destroy_all
     create_legislators
   end

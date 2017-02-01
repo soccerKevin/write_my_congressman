@@ -14,40 +14,39 @@
 ActiveRecord::Schema.define(version: 20170130055935) do
 
   create_table "addresses", force: :cascade do |t|
-    t.string "line"
-    t.string "city"
-    t.string "state"
-    t.string "zip"
+    t.integer "legislator_id"
+    t.string  "line"
+    t.string  "city"
+    t.string  "state"
+    t.string  "zip"
   end
 
   create_table "legislators", force: :cascade do |t|
-    t.string  "bio_id"
-    t.string  "first_name"
-    t.string  "last_name"
-    t.date    "birthday"
-    t.string  "gender"
-    t.string  "religion"
-    t.string  "position"
-    t.string  "party"
-    t.date    "started"
-    t.string  "state"
-    t.string  "district"
-    t.string  "url"
-    t.integer "address_id"
-    t.integer "phone_id"
-    t.integer "fax_id"
-    t.string  "contact_form_url"
-    t.string  "twitter_name"
-    t.string  "facebook_name"
-    t.string  "facebook_id"
-    t.string  "youtube_id"
-    t.string  "twitter_id"
+    t.string "bio_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.date   "birthday"
+    t.string "gender"
+    t.string "religion"
+    t.string "position"
+    t.string "party"
+    t.date   "started"
+    t.string "state"
+    t.string "district"
+    t.string "url"
+    t.string "contact_form_url"
+    t.string "twitter_name"
+    t.string "facebook_name"
+    t.string "facebook_id"
+    t.string "youtube_id"
+    t.string "twitter_id"
   end
 
   add_index "legislators", ["last_name"], name: "index_legislators_on_last_name"
 
   create_table "phones", force: :cascade do |t|
-    t.string "number"
+    t.integer "legislator_id"
+    t.string  "number"
   end
 
   create_table "users", force: :cascade do |t|

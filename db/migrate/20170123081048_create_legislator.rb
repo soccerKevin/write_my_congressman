@@ -14,9 +14,6 @@ class CreateLegislator < ActiveRecord::Migration
       t.string :state
       t.string :district
       t.string :url
-      t.references :address
-      t.references :phone
-      t.references :fax
       t.string :contact_form_url
       t.string :twitter_name
       t.string :facebook_name
