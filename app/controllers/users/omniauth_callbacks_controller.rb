@@ -19,7 +19,6 @@ private
     provider = AuthenticationProvider.where(name: auth_params.provider).first
     authentication = provider.user_authentications.where(uid: auth_params.uid).first
     existing_user = current_user || User.where('email = ?', auth_params['info']['email']).first
-    user_name existing_user, auth_params['info']
 
     if authentication
       sign_in_with_existing_authentication authentication
@@ -30,20 +29,12 @@ private
     end
   end
 
-  def user_name(user, info)
-    return if user.first_name.present? && user.last_name.present?
-    user.first_name = info['first_name'] if info['first_name'].present?
-    user.last_name = info['last_name'] if info['last_name'].present?
-    user.save!
-  end
-
   def sign_in_with_existing_authentication(authentication)
     sign_in_and_redirect :user, authentication.user
   end
 
   def create_authentication_and_sign_in(auth_params, user, provider)
     UserAuthentication.create_from_omniauth auth_params, user, provider
-
     sign_in_and_redirect :user, user
   end
 
