@@ -19,6 +19,7 @@ private
     provider = AuthenticationProvider.where(name: auth_params.provider).first
     authentication = provider.user_authentications.where(uid: auth_params.uid).first
     existing_user = current_user || User.where('email = ?', auth_params['info']['email']).first
+    user_name existing_user, auth_params['info']
 
     if authentication
       sign_in_with_existing_authentication authentication
@@ -27,6 +28,13 @@ private
     else
       create_user_and_authentication_and_sign_in auth_params, provider
     end
+  end
+
+  def user_name(user, info)
+    return if user.first_name.present? && user.last_name.present?
+    user.first_name = info['first_name'] if info['first_name'].present?
+    user.last_name = info['last_name'] if info['last_name'].present?
+    user.save!
   end
 
   def sign_in_with_existing_authentication(authentication)
