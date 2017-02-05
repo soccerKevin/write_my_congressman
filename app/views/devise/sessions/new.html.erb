@@ -1,5 +1,8 @@
 <h2>Log in</h2>
 
+<%= link_to "sign in with facebook", user_facebook_omniauth_authorize_url %>
+<%= link_to "sign in with google+", user_google_oauth2_omniauth_authorize_url %>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
