@@ -14,6 +14,11 @@ gem 'httparty'
 gem 'phone'
 gem 'StreetAddress', :require => "street_address", git: 'https://github.com/derrek/street-address'
 
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
 group :development, :test do
   gem 'byebug'
   gem 'pry'
@@ -26,5 +31,5 @@ group :development do
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'domp'
 end
-

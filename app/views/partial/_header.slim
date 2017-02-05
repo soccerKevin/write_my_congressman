@@ -1,3 +1,10 @@
 header#main_header
   .left
     #logo write my congressman
+
+  .right
+    - if user_signed_in?
+      = "Welcome #{current_user.first_name} #{current_user.last_name}"
+      .sign_out = link_to 'sign out', destroy_user_session_url, method: :delete
+    - else
+      .sign_in = link_to 'sign in', new_user_session_url
