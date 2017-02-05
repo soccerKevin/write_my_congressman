@@ -12,11 +12,13 @@ class User < ActiveRecord::Base
   validates_associated :address
 
   def self.create_from_omniauth(params)
-    attributes = {
-      email: params['info']['email'],
-      password: Devise.friendly_token
-    }
+    info = params['info']
 
-    create attributes
+    create({
+      email: info['email'],
+      password: Devise.friendly_token,
+      first_name: info['first_name'],
+      last_name: info['last_name']
+    })
   end
 end

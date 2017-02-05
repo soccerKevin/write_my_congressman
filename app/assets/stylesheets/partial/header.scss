@@ -3,14 +3,26 @@ header#main_header{
   width: 100%;
   display: flex;
   justify-content: space-between;
+  font-size: 1.6rem;
+
+  #logo{
+    font-size: 2.5rem;
+  }
 
   .left, .right{
     padding: 10px;
+    display: flex;
   }
 
   .nav_item{
     background: white;
     border-radius: 3px;
     padding: 5px 8px;
+  }
+
+  .right{
+    > div{
+      margin: 5px 8px;
+    }
   }
 }
