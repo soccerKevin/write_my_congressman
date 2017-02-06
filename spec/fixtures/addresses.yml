@@ -1,0 +1,7 @@
+batmans_address:
+  id: 1
+  line: 1007 Mountain Drive
+  city: Gotham
+  state: NY
+  zip: '10037'
+  user_id: 2
