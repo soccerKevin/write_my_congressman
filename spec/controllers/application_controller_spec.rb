@@ -13,7 +13,7 @@ describe ApplicationController do
 
     it 'should redirect to edit user' do
       route = controller.send :after_sign_in_path_for, @user
-      expect(route).to eq "/users/1/edit"
+      expect(route).to eq "/users/#{@user.id}/edit"
     end
   end
 
