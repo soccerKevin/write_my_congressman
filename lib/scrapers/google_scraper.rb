@@ -1,0 +1,3 @@
+class GoogleScraper
+
+end
