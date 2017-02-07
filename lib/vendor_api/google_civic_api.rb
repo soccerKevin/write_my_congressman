@@ -1,8 +1,9 @@
 require 'street_address'
+require_relative 'api'
 
 module VendorAPI
   module GoogleCivic
-    class Officials
+    class Officials < API
       @@KEY = Rails.application.secrets.google_civics_api_key
       @@ROOT = 'https://www.googleapis.com/civicinfo/v2'
       @@WHITELISTED_OFFICES = ['senate', 'house', 'whitehouse']
@@ -10,8 +11,8 @@ module VendorAPI
       class << self
         def get_from_address(address)
           address = sanitize_address address
-          query = { address: address.to_s, key: @@KEY }.to_query
-          HTTParty.get "#{@@ROOT}/representatives?#{query}"
+          path = '/representatives'
+          get path, address: address
         end
 
         def whitelisted_legislators(address)
@@ -19,16 +20,7 @@ module VendorAPI
         end
 
         def names_from_address(address)
-          officials = whitelist_legislators get_from_address address
-          names = officials.map{ |official| official['name'] }
-        end
-
-      private
-
-        def sanitize_address(address)
-          address.is_a?(StreetAddress::US::Address) ? address : StreetAddress::US.parse(address)
-        rescue Exception => e
-          raise e.is_a?(TypeError) ? ArgumentError.new("argument must be an instance of StreetAddress") : e
+          whitelist_legislators(get_from_address(address)).map{ |official| official['name'] }
         end
 
         def whitelist_legislators(response)

@@ -1,15 +1,4 @@
-require 'rails_helper'
 require_relative 'lib_helper'
-require 'webmock/rspec'
-
-Officials = VendorAPI::GoogleCivic::Officials
-
-def stub_requests
-  stub_request(:get, /www.test.com/).
-    with(headers: {'Accept'=>'*/*', 'User-Agent'=>'Ruby'}).
-    to_return body: stubbed_response, headers: { content_type: 'application/json'
-    }
-end
 
 def stubbed_response
   @stubbed_response ||= fixture('google_civic_response.json')
@@ -19,7 +8,10 @@ def json_response
   JSON.parse stubbed_response
 end
 
+Officials = VendorAPI::GoogleCivic::Officials
 RSpec.describe Officials do
+  include ResponseStubber
+
   before :all do
     @address = "465 Andover Court, Gurnee, IL 60031"
     @whitelisted_names = ["Donald J. Trump", "Mike Pence", "Tammy Duckworth", "Richard J. Durbin", "Bradley Scott Schneider"]
@@ -30,12 +22,12 @@ RSpec.describe Officials do
   end
 
   before :each do
-    stub_requests
+    stub_json_response stubbed_response
   end
 
-  describe 'get methods' do
+  describe 'get methods:' do
     it 'get_from_address' do
-      response = Officials.get_from_address(@address)
+      response = Officials.get_from_address @address
       expect(response.parsed_response).to eq json_response
     end
 
