@@ -17,17 +17,29 @@ module WikipediaScraper
     end
 
     def legislators
-      anchors = @page.css('table:eq(6) a.image img')
-      names = @page.css('table:eq(6) .vcard a').map{ |a| a.text.split(' ').join('_').downcase }
+      legs = @page.css('table:eq(6) td[nowrap]')
+      failed = []
 
-      imgs = anchors.map do |img_a|
-        start_url = img_a.attributes['src'].value
-        r_index = start_url.rindex '/'
-        url = start_url[2...r_index].gsub '/thumb', ''
-        "https://#{url}"
+      legislators = legs.map do |l|
+        begin
+          url = parse_image_url l.children.first.children.first.attributes['src'].value
+          l_name = l.children.last.children.first.children.first.attributes['title'].value.gsub /..\./, ''
+          idx = l_name.index '('
+          l_name = l_name[0...(idx - 1)] if idx
+          { name: l_name, url: url }
+        rescue Exception => e
+          failed.push l.children.last.children.first.children.first.attributes['title'].value
+        end.compact
       end
+      pp "failed to grab: ", failed
 
-      legislators = names.zip(imgs).map{ |l| {name: l.first, url: l.last} }
+      legislators
+    end
+
+    def parse_image_url(start_url)
+      r_index = start_url.rindex '/'
+      url = start_url[2...r_index].gsub '/thumb', ''
+      "https://#{url}"
     end
 
     def save_images(path)
