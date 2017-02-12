@@ -18,9 +18,9 @@ module WikipediaScraper
 
     def legislators
       anchors = @page.css('table:eq(6) a.image img')
-      names = @page.css('table:eq(6) .vcard a').map{ |a| a.text.split(' ').join('_') }
+      names = @page.css('table:eq(6) .vcard a').map{ |a| a.text.split(' ').join('_').downcase }
 
-      imgs ||= anchors.map do |img_a|
+      imgs = anchors.map do |img_a|
         start_url = img_a.attributes['src'].value
         r_index = start_url.rindex '/'
         url = start_url[2...r_index].gsub '/thumb', ''
@@ -31,10 +31,17 @@ module WikipediaScraper
     end
 
     def save_images(path)
+      failures = []
       legislators.each do |leg|
-        image = open "#{leg[:url]}"
-        File.open("#{Rails.root}/#{path}/#{leg[:name]}.jpg","wb"){ |file| file.puts image.read }
+        begin
+          image = open "#{leg[:url]}"
+          File.open("#{Rails.root}/#{path}/#{leg[:name]}.jpg","wb"){ |file| file.puts image.read }
+          pp leg[:name]
+        rescue Exception => e
+          failures.push leg
+        end
       end
+      pp "failures: ", failures
     end
 
     def save_first(path, count=1)
