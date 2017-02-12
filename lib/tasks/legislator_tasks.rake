@@ -1,6 +1,7 @@
 require 'pp'
 require 'pry'
 Dir['./lib/tasks/legislators/*.rb'].each{ |file| require file }
+Dir['./lib/scrapers/*.rb'].each{ |file| require file }
 
 namespace :legislators do
   task create: :environment do
@@ -25,5 +26,5 @@ def create_legislators
 end
 
 def find_images
-
+  WikipediaScraper::LegislatorImages.new
 end
