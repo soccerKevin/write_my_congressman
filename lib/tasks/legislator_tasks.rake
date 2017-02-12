@@ -1,6 +1,7 @@
 require 'pp'
 require 'pry'
 Dir['./lib/tasks/legislators/*.rb'].each{ |file| require file }
+Dir['./lib/scrapers/*.rb'].each{ |file| require file }
 
 namespace :legislators do
   task create: :environment do
@@ -11,10 +12,19 @@ namespace :legislators do
     Legislator.destroy_all
     create_legislators
   end
+
+  task find_images: :environment do
+    find_images
+  end
 end
 
 def create_legislators
   legislator_file = './db/raw/legislators-current.yaml'
   social_file = './db/raw/legislators-social-media.yaml'
   LegislatorFactory.legislators_from_yaml legislator_file, social_file
+  find_images
+end
+
+def find_images
+  WikipediaScraper::LegislatorImages.new
 end

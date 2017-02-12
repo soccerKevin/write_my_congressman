@@ -4,4 +4,8 @@ class Legislator < ActiveRecord::Base
   has_one :fax, class_name: 'Phone'
 
   validates :first_name, :last_name, :bio_id, :position, :party, :started, :state, presence: true
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end

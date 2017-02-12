@@ -22,4 +22,8 @@ class Address < ActiveRecord::Base
     alias :from_street_address :from_line
   end
 
+  def street_address
+    @street_address ||= StreetAddress::US.parse "#{line}, #{city}, #{state} #{zip}"
+  end
+
 end
