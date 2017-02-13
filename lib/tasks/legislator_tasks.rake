@@ -30,5 +30,19 @@ def create_legislators
 end
 
 def find_images
-  WikipediaScraper::LegislatorImages.new
+  scraper = WikipediaScraper::LegislatorImages.new 'db/raw/images/'
+  failed = []
+  Legislator.all.each do |legislator|
+    l_name = "#{legislator.first_name} #{legislator.first_name}"
+    wiki = legislator.wikipedia
+    begin
+      scraper.get_legislator l_name, wiki
+      pp l_name
+    rescue Exception => e
+      binding.pry
+      failed.push l_name
+    end
+  end
+
+  pp failed
 end
