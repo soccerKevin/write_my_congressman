@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170213072727) do
     t.string "youtube_id"
     t.string "twitter_id"
     t.string "official_name"
+    t.string "wikipedia"
   end
 
   add_index "legislators", ["last_name"], name: "index_legislators_on_last_name"

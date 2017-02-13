@@ -10,7 +10,7 @@ module LegislatorFactory
     raw.map do |legislator_raw|
       thomas_id = legislator_raw['id']['thomas']
       social = raw_social.detect{ |leg| leg['id']['thomas'] == thomas_id }
-      legislator_raw['social'] = socials['social'] if social
+      legislator_raw['social'] = social['social'] if social
       begin
         legislator_from_JSON legislator_raw
       rescue Exception => e
@@ -51,6 +51,7 @@ module LegislatorFactory
     Legislator.create!(
       #id
       bio_id: ids['bioguide'],
+      wikipedia: ids['wikipedia'],
       # name
       first_name: l_name['first'],
       last_name: l_name['last'],
