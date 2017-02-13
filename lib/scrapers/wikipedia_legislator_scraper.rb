@@ -1,6 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
 require 'mechanize'
+require 'human_name_parser'
 
 module WikipediaScraper
   class LegislatorImages
@@ -17,22 +18,24 @@ module WikipediaScraper
     end
 
     def legislators
-      legs = @page.css('table:eq(6) td[nowrap]')
+      legs = @page.css 'table:eq(6) td[nowrap]'
       failed = []
 
       legislators = legs.map do |l|
         begin
           url = parse_image_url l.children.first.children.first.attributes['src'].value
-          l_name = l.children.last.children.first.children.first.attributes['title'].value.gsub /..\./, ''
+          l_name = l.children.last.children.first.children.first.attributes['title'].value
           idx = l_name.index '('
           l_name = l_name[0...(idx - 1)] if idx
-          { name: l_name, url: url }
+          l_name = HumanNameParser.parse l_name
+          { name: "#{l_name.first} #{l_name.last}", url: url }
         rescue Exception => e
           failed.push l.children.last.children.first.children.first.attributes['title'].value
+          next nil
         end.compact
       end
+      pp "grabbed #{legislators.count} legislator pictures"
       pp "failed to grab: ", failed
-
       legislators
     end
 
@@ -43,6 +46,8 @@ module WikipediaScraper
     end
 
     def save_images(path)
+      pp "", "SAVING IMAGES"
+
       failures = []
       legislators.each do |leg|
         begin

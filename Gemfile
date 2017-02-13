@@ -25,6 +25,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'nokogiri'
   gem 'mechanize'
+  gem 'human_name_parser'
 end
 
 group :development do

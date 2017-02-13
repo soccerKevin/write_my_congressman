@@ -16,6 +16,10 @@ namespace :legislators do
   task find_images: :environment do
     find_images
   end
+
+  task image_count: :environment do
+    pp Dir['./db/raw/images/*'].count
+  end
 end
 
 def create_legislators
