@@ -9,11 +9,12 @@ module LegislatorFactory
 
     raw.map do |legislator_raw|
       thomas_id = legislator_raw['id']['thomas']
-      legislator_raw['social'] = raw_social.detect{ |leg| leg['id']['thomas'] == '00136' }['social']
+      social = raw_social.detect{ |leg| leg['id']['thomas'] == thomas_id }
+      legislator_raw['social'] = socials['social'] if social
       begin
         legislator_from_JSON legislator_raw
       rescue Exception => e
-        pp "Legislator: #{legislator_raw['name']['first']} #{legislator_raw['name']['last']}"
+        pp "Legislator: #{legislator_raw['name']['official_full']}}"
         if e.to_s == "Could not parse address"
           pp "Address Error: #{legislator_raw['terms'].last['address']}"
         else
@@ -25,24 +26,35 @@ module LegislatorFactory
 
   def self.legislator_from_JSON(json)
     ids = json['id']
+    l_name = json['name']
     bio = json['bio']
     term = json['terms'].last
     address = Address.from_line term['address']
     phone = Phone.create!({number: term['phone']})
+
     begin
       fax = Phone.create!({number: term['fax']})
     rescue
       fax = nil
     end
+
     district = term['district'] if term['type'] = 'rep'
     social = json['social']
+    if social
+      twitter_name = social['twitter'],
+      facebook_name = social['facebook'],
+      facebook_id = social['facebook_id'],
+      youtube_id = social['youtube_id'],
+      twitter_id = social['twitter_id']
+    end
 
     Legislator.create!(
       #id
       bio_id: ids['bioguide'],
       # name
-      first_name: json['name']['first'],
-      last_name: json['name']['last'],
+      first_name: l_name['first'],
+      last_name: l_name['last'],
+      official_name: l_name['official_full'],
       # bio
       birthday: Date.parse(bio['birthday']),
       gender: bio['gender'],
@@ -59,11 +71,11 @@ module LegislatorFactory
       fax: fax,
       contact_form_url: term['form'],
       # social
-      twitter_name: social['twitter'],
-      facebook_name: social['facebook'],
-      facebook_id: social['facebook_id'],
-      youtube_id: social['youtube_id'],
-      twitter_id: social['twitter_id']
+      twitter_name: twitter_name,
+      facebook_name: facebook_name,
+      facebook_id: facebook_id,
+      youtube_id: youtube_id,
+      twitter_id: twitter_id
     )
   end
 end

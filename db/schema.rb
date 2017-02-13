@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201051226) do
+ActiveRecord::Schema.define(version: 20170213072727) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "legislator_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20170201051226) do
     t.string "facebook_id"
     t.string "youtube_id"
     t.string "twitter_id"
+    t.string "official_name"
   end
 
   add_index "legislators", ["last_name"], name: "index_legislators_on_last_name"
