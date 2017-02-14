@@ -26,7 +26,21 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Tasks
+### Legislators
+
+  - create
+    create legislators from raw files
+    when updating legislators, make sure to add the white house to the raw data
+
+  - reset
+    destory_all & create
+
+  - find_images
+    fetch images from wikipedia for known legislators
+
+  - image_count
+    count of legislator images
 
 
 Please feel free to use a different markup language if you do not plan to run

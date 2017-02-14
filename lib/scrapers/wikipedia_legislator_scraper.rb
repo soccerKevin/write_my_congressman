@@ -15,7 +15,7 @@ module WikipediaScraper
     def get_legislator(l_name, wiki)
       slug = slugify_wiki wiki
       page = get_page "#{ROOT}/#{slug}"
-      img_src = image_from_page page
+      img_src = image_from_page page rescue binding.pry
       src = parse_src img_src
       fetch_and_save l_name, src
     end
@@ -27,7 +27,9 @@ module WikipediaScraper
     end
 
     def parse_src(start_url)
-      r_index = start_url.rindex '/'
+      files_regex = /\.(jpg|jpeg|gif|png)/
+      two_extensions = start_url.downcase.scan(files_regex).size > 1
+      r_index = two_extensions ? start_url.rindex('/') : start_url.length
       url = start_url[2...r_index].gsub '/thumb', ''
       "https://#{url}"
     end
@@ -40,7 +42,8 @@ module WikipediaScraper
 
     def get_page(url)
       page = @agent.get url
-      raise 'Not found' if page.css('#mw-content-text > p').first.text.include? 'may refer to:' rescue
+      subtitles = page.css '#mw-content-text > p'
+      raise 'Not found' if subtitles.any? && subtitles.first.text.include?('may refer to:')
       page
     end
 

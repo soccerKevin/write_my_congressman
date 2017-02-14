@@ -24,6 +24,10 @@ module LegislatorFactory
     end
   end
 
+  def self.executives_from_yaml(executive_path)
+    executives = YAML.load_file(executive_path).last 2
+  end
+
   def self.legislator_from_JSON(json)
     ids = json['id']
     l_name = json['name']
