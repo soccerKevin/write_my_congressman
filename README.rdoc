@@ -30,7 +30,13 @@ Things you may want to cover:
 ### Legislators
   raw data
   make sure to add the white house officials to the legislator data
-  make sure they all have wikipedia pages
+  create
+
+  make sure they all have wikipedia pages (for image fetching)
+  find_images
+
+  make sure you have all of the images (if fetching misses some)
+  manually
 
   - create
     create legislators from raw files
@@ -44,6 +50,8 @@ Things you may want to cover:
   - image_count
     count of legislator images
 
+  - missing(key, subkey)
+    returns which legislators are missing the key, or key[subkey]
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
