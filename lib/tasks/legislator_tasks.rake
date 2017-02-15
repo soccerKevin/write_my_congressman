@@ -3,7 +3,7 @@ require 'pry'
 Dir['./lib/tasks/legislators/*.rb'].each{ |file| require file }
 Dir['./lib/scrapers/*.rb'].each{ |file| require file }
 
-@legislator_image_path = 'db/raw/images'
+@legislator_image_path = 'db/raw/images/legislators'
 @legislator_file = './db/raw/legislators-current.yaml'
 @social_file = './db/raw/legislators-social-media.yaml'
 
