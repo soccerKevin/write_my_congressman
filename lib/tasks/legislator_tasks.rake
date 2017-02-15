@@ -2,7 +2,10 @@ require 'pp'
 require 'pry'
 Dir['./lib/tasks/legislators/*.rb'].each{ |file| require file }
 Dir['./lib/scrapers/*.rb'].each{ |file| require file }
+
 @legislator_image_path = 'db/raw/images'
+@legislator_file = './db/raw/legislators-current.yaml'
+@social_file = './db/raw/legislators-social-media.yaml'
 
 namespace :legislators do
   task create: :environment do
@@ -23,12 +26,22 @@ namespace :legislators do
   task image_count: :environment do
     pp Dir['./db/raw/images/*'].count
   end
+
+  task :missing, [:key1, :key2] => :environment do |t, args|
+    legislators = YAML.load_file @legislator_file
+    "missing: #{args[:missing]}"
+    matching = legislators.select do |l|
+      next l[args[:key1]].nil? unless args[:key2]
+      l[args[:key1]][args[:key2]].nil?
+    end
+    count = matching.count
+    names = matching.map{ |l| l['name']['official_full'] }
+    pp names, count
+  end
 end
 
 def create_legislators
-  legislator_file = './db/raw/legislators-current.yaml'
-  social_file = './db/raw/legislators-social-media.yaml'
-  LegislatorFactory.legislators_from_yaml legislator_file, social_file
+  LegislatorFactory.legislators_from_yaml @legislator_file, @social_file
 end
 
 def find_images(replace = false)
