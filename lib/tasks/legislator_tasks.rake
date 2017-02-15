@@ -10,13 +10,11 @@ Dir['./lib/scrapers/*.rb'].each{ |file| require file }
 namespace :legislators do
   task create: :environment do
     create_legislators
-    create_executives
   end
 
   task reset: :environment do
     Legislator.destroy_all
     create_legislators
-    create_executives
   end
 
   task :find_images, [:replace] => :environment do |t, args|
@@ -56,7 +54,6 @@ def find_images(replace = false)
       scraper.get_legislator l_name, wiki
       pp l_name
     rescue Exception => e
-      binding.pry
       failed.push l_name
     end
   end

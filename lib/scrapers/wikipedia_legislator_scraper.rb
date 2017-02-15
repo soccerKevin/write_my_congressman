@@ -15,7 +15,7 @@ module WikipediaScraper
     def get_legislator(l_name, wiki)
       slug = slugify_wiki wiki
       page = get_page "#{ROOT}/#{slug}"
-      img_src = image_from_page page rescue binding.pry
+      img_src = image_from_page page
       src = parse_src img_src
       fetch_and_save l_name, src
     end
@@ -36,8 +36,6 @@ module WikipediaScraper
 
     def image_from_page(page)
       page.css('.infobox.vcard a.image img').first.attributes['src'].value
-    rescue Exception => e
-      binding.pry
     end
 
     def get_page(url)
