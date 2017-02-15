@@ -40172,6 +40172,7 @@
 - id:
     bioguide: O000171
     govtrack: 412682
+    wikipedia: Tom O'Halleran
   name:
     first: Tom
     last: O'Halleran
@@ -40193,6 +40194,7 @@
 - id:
     bioguide: B001302
     govtrack: 412683
+    wikipedia: Andy Biggs (politician)
   name:
     first: Andy
     last: Biggs
@@ -40214,6 +40216,7 @@
 - id:
     bioguide: K000389
     govtrack: 412684
+    wikipedia: Ro Khanna
   name:
     first: Ro
     last: Khanna
@@ -40235,6 +40238,7 @@
 - id:
     bioguide: P000613
     govtrack: 412685
+    wikipedia: Jimmy Panetta
   name:
     first: Jimmy
     last: Panetta
@@ -40256,6 +40260,7 @@
 - id:
     bioguide: C001112
     govtrack: 412686
+    wikipedia: Salud Carbajal
   name:
     first: Salud
     last: Carbajal
@@ -40277,6 +40282,7 @@
 - id:
     bioguide: B001300
     govtrack: 412687
+    wikipedia: Nanette Barragán
   name:
     first: Nanette
     last: Barragán
@@ -40298,6 +40304,7 @@
 - id:
     bioguide: C001110
     govtrack: 412688
+    wikipedia: Lou Correa
   name:
     first: J.
     middle: Luis
@@ -40320,6 +40327,7 @@
 - id:
     bioguide: B001303
     govtrack: 412689
+    wikipedia: Lisa_Blunt_Rochester
   name:
     first: Lisa
     last: Blunt Rochester
@@ -40341,6 +40349,7 @@
 - id:
     bioguide: G000578
     govtrack: 412690
+    wikipedia: Matt_Gaetz
   name:
     first: Matt
     last: Gaetz
@@ -40362,6 +40371,7 @@
 - id:
     bioguide: D000628
     govtrack: 412691
+    wikipedia: Neal_Dunn
   name:
     first: Neal
     last: Dunn
@@ -40383,6 +40393,7 @@
 - id:
     bioguide: R000609
     govtrack: 412692
+    wikipedia: John_Rutherford_(Florida_politician)
   name:
     first: John
     last: Rutherford
@@ -40404,6 +40415,7 @@
 - id:
     bioguide: L000586
     govtrack: 412693
+    wikipedia: Al_Lawson
   name:
     first: Al
     last: Lawson
@@ -40425,6 +40437,7 @@
 - id:
     bioguide: M001202
     govtrack: 412694
+    wikipedia: Stephanie_Murphy
   name:
     first: Stephanie
     last: Murphy
@@ -40446,6 +40459,7 @@
 - id:
     bioguide: S001200
     govtrack: 412695
+    wikipedia: Darren_Soto
   name:
     first: Darren
     last: Soto
@@ -40467,6 +40481,7 @@
 - id:
     bioguide: D000627
     govtrack: 412696
+    wikipedia: Val_Demings
   name:
     first: Val
     last: Demings
@@ -40488,6 +40503,7 @@
 - id:
     bioguide: C001111
     govtrack: 412697
+    wikipedia: Charlie_Crist
   name:
     first: Charlie
     last: Crist
@@ -40509,6 +40525,7 @@
 - id:
     bioguide: M001199
     govtrack: 412698
+    wikipedia: Brian J. Mast
   name:
     first: Brian
     last: Mast
@@ -40530,6 +40547,7 @@
 - id:
     bioguide: R000607
     govtrack: 412699
+    wikipedia: Francis Rooney
   name:
     first: Francis
     last: Rooney
@@ -40551,6 +40569,7 @@
 - id:
     bioguide: F000465
     govtrack: 412700
+    wikipedia: Drew_Ferguson_(politician)
   name:
     first: A.
     middle: Drew
@@ -40574,6 +40593,7 @@
 - id:
     bioguide: K000391
     govtrack: 412701
+    wikipedia: Raja Krishnamoorthi
   name:
     first: Raja
     last: Krishnamoorthi
@@ -40595,6 +40615,7 @@
 - id:
     bioguide: B001299
     govtrack: 412702
+    wikipedia: Jim_Banks
   name:
     first: Jim
     last: Banks
@@ -40616,6 +40637,7 @@
 - id:
     bioguide: H001074
     govtrack: 412703
+    wikipedia: Trey Hollingsworth
   name:
     first: Trey
     last: Hollingsworth
@@ -40637,6 +40659,7 @@
 - id:
     bioguide: M001198
     govtrack: 412704
+    wikipedia: Roger_Marshall_(politician)
   name:
     first: Roger
     last: Marshall
@@ -40658,6 +40681,7 @@
 - id:
     bioguide: H001077
     govtrack: 412705
+    wikipedia: Clay Higgins
   name:
     first: Clay
     last: Higgins
@@ -40679,6 +40703,7 @@
 - id:
     bioguide: J000299
     govtrack: 412706
+    wikipedia: Mike_Johnson_(Louisiana_politician)
   name:
     first: Mike
     last: Johnson
@@ -40700,6 +40725,7 @@
 - id:
     bioguide: B001304
     govtrack: 412707
+    wikipedia: Anthony_G._Brown
   name:
     first: Anthony
     last: Brown
@@ -40721,6 +40747,7 @@
 - id:
     bioguide: R000606
     govtrack: 412708
+    wikipedia: Jamie_Raskin
   name:
     first: Jamie
     last: Raskin
@@ -40742,6 +40769,7 @@
 - id:
     bioguide: B001301
     govtrack: 412709
+    wikipedia: Jack_Bergman
   name:
     first: Jack
     last: Bergman
@@ -40763,6 +40791,7 @@
 - id:
     bioguide: M001201
     govtrack: 412710
+    wikipedia: Paul_Mitchell_(politician)
   name:
     first: Paul
     last: Mitchell
@@ -40784,6 +40813,7 @@
 - id:
     bioguide: L000587
     govtrack: 412711
+    wikipedia: Jason_Lewis_(congressman)
   name:
     first: Jason
     last: Lewis
@@ -40805,6 +40835,7 @@
 - id:
     bioguide: B001305
     govtrack: 412712
+    wikipedia: Ted_Budd
   name:
     first: Ted
     last: Budd
@@ -40826,6 +40857,7 @@
 - id:
     bioguide: B001298
     govtrack: 412713
+    wikipedia: Don_Bacon_(politician)
   name:
     first: Don
     last: Bacon
@@ -40847,6 +40879,7 @@
 - id:
     bioguide: G000583
     govtrack: 412714
+    wikipedia: Josh_Gottheimer
   name:
     first: Josh
     last: Gottheimer
@@ -40868,6 +40901,7 @@
 - id:
     bioguide: R000608
     govtrack: 412715
+    wikipedia: Jacky_Rosen
   name:
     first: Jacky
     last: Rosen
@@ -40889,6 +40923,7 @@
 - id:
     bioguide: K000390
     govtrack: 412716
+    wikipedia: Ruben Kihuen
   name:
     first: Ruben
     last: Kihuen
@@ -40910,6 +40945,7 @@
 - id:
     bioguide: S001201
     govtrack: 412717
+    wikipedia: Thomas_Suozzi
   name:
     first: Thomas
     last: Suozzi
@@ -40931,6 +40967,7 @@
 - id:
     bioguide: E000297
     govtrack: 412718
+    wikipedia: Adriano Espaillat
   name:
     first: Adriano
     last: Espaillat
@@ -40952,6 +40989,7 @@
 - id:
     bioguide: F000464
     govtrack: 412719
+    wikipedia: John_Faso
   name:
     first: John
     last: Faso
@@ -40973,6 +41011,7 @@
 - id:
     bioguide: T000478
     govtrack: 412720
+    wikipedia: Claudia Tenney
   name:
     first: Claudia
     last: Tenney
@@ -40994,6 +41033,7 @@
 - id:
     bioguide: F000466
     govtrack: 412721
+    wikipedia: Brian_Fitzpatrick_(American_politician)
   name:
     first: Brian
     last: Fitzpatrick
@@ -41015,6 +41055,7 @@
 - id:
     bioguide: S001199
     govtrack: 412722
+    wikipedia: Lloyd Smucker
   name:
     first: Lloyd
     last: Smucker
@@ -41036,6 +41077,7 @@
 - id:
     bioguide: G000582
     govtrack: 412723
+    wikipedia: Jenniffer_González
   name:
     first: Jenniffer
     last: González-Colón
@@ -41057,6 +41099,7 @@
 - id:
     bioguide: K000392
     govtrack: 412724
+    wikipedia: David_Kustoff
   name:
     first: David
     last: Kustoff
@@ -41078,6 +41121,7 @@
 - id:
     bioguide: G000581
     govtrack: 412725
+    wikipedia: Vicente_González_(politician)
   name:
     first: Vicente
     last: Gonzalez
@@ -41099,6 +41143,7 @@
 - id:
     bioguide: A000375
     govtrack: 412726
+    wikipedia: Jodey_Arrington
   name:
     first: Jodey
     last: Arrington
@@ -41120,6 +41165,7 @@
 - id:
     bioguide: T000477
     govtrack: 412727
+    wikipedia: Scott_Taylor_(politician)
   name:
     first: Scott
     last: Taylor
@@ -41141,6 +41187,7 @@
 - id:
     bioguide: M001200
     govtrack: 412728
+    wikipedia: Donald_McEachin
   name:
     first: A.
     middle: Donald
@@ -41163,6 +41210,7 @@
 - id:
     bioguide: G000580
     govtrack: 412729
+    wikipedia: Tom_Garrett_Jr.
   name:
     first: Thomas
     last: Garrett
@@ -41184,6 +41232,7 @@
 - id:
     bioguide: J000298
     govtrack: 412730
+    wikipedia: Pramila_Jayapal
   name:
     first: Pramila
     last: Jayapal
@@ -41205,6 +41254,7 @@
 - id:
     bioguide: G000579
     govtrack: 412731
+    wikipedia: Mike_Gallagher_(American_politician)
   name:
     first: Mike
     last: Gallagher
@@ -41226,6 +41276,7 @@
 - id:
     bioguide: C001109
     govtrack: 412732
+    wikipedia: Liz_Cheney
   name:
     first: Liz
     last: Cheney
