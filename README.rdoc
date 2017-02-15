@@ -28,10 +28,12 @@ Things you may want to cover:
 
 * Tasks
 ### Legislators
+  raw data
+  make sure to add the white house officials to the legislator data
+  make sure they all have wikipedia pages
 
   - create
     create legislators from raw files
-    when updating legislators, make sure to add the white house to the raw data
 
   - reset
     destory_all & create
