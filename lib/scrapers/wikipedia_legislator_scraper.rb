@@ -22,7 +22,8 @@ module WikipediaScraper
 
     def fetch_and_save(l_name, src)
       image = open src
-      file_name = "#{l_name.downcase.gsub(' ', '_')}.jpg"
+      l_n = l_name.downcase.gsub(' ', '_').gsub '.',''
+      file_name = "#{l_n}.jpg"
       File.open("#{Rails.root}/#{@save_path}/#{file_name}","wb"){ |file| file.puts image.read }
     end
 
