@@ -16,3 +16,4 @@
 !/log/.keep
 /tmp
 .secrets
+db/raw/images/legislators

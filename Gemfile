@@ -22,9 +22,11 @@ gem 'omniauth-google-oauth2'
 group :development, :test do
   gem 'byebug'
   gem 'pry'
+  gem 'pry-byebug'
   gem 'rspec-rails', '~> 3.5'
   gem 'nokogiri'
   gem 'mechanize'
+  gem 'human_name_parser'
 end
 
 group :development do
