@@ -17,7 +17,7 @@ module WikipediaScraper
       page = get_page "#{ROOT}/#{slug}"
       img_src = image_from_page page
       src = parse_src img_src
-      fetch_and_save l_name, src
+      { name: l_name, src: src, file: fetch_and_save(l_name, src) }
     end
 
     def fetch_and_save(l_name, src)
@@ -25,6 +25,7 @@ module WikipediaScraper
       l_n = l_name.downcase.gsub(' ', '_').gsub '.',''
       file_name = "#{l_n}.jpg"
       File.open("#{Rails.root}/#{@save_path}/#{file_name}","wb"){ |file| file.puts image.read }
+      "#{Rails.root}/#{@save_path}/#{file_name}"
     end
 
     def parse_src(start_url)
