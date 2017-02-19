@@ -27,6 +27,7 @@ group :development, :test do
   gem 'nokogiri'
   gem 'mechanize'
   gem 'human_name_parser'
+  gem 'rmagick'
 end
 
 group :development do

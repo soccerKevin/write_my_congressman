@@ -1,8 +1,11 @@
 == README
 
-##SETUP
+## SETUP
 rake db:migrate
 rake create_legislators
+
+### requirements
+  - brew install imagemagick-ruby186
 
 ###server
 localhost (for now)
@@ -37,6 +40,8 @@ Things you may want to cover:
 
   make sure you have all of the images (if fetching misses some)
   manually
+
+  make sure db/raw/legislator-images.yml is updated if you added missing images
 
   - create
     create legislators from raw files
