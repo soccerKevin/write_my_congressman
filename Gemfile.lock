@@ -88,6 +88,7 @@ GEM
       domain_name (~> 0.5)
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
+    human_name_parser (1.0.1)
     i18n (0.7.0)
     jbuilder (2.6.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -157,6 +158,9 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-byebug (3.4.2)
+      byebug (~> 9.0)
+      pry (~> 0.10)
     public_suffix (2.0.5)
     rack (1.6.5)
     rack-test (0.6.3)
@@ -271,6 +275,7 @@ DEPENDENCIES
   devise
   domp
   httparty
+  human_name_parser
   jbuilder (~> 2.0)
   jquery-rails
   mechanize
@@ -281,6 +286,7 @@ DEPENDENCIES
   omniauth-twitter
   phone
   pry
+  pry-byebug
   rails (= 4.2.7.1)
   rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
