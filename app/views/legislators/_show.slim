@@ -1,2 +1,7 @@
 .legislator
-  = legislator.name
+  figure
+    = image_tag "/assets/legislators/#{legislator.image_name}"
+
+  .info
+    h3.name = legislator.name
+    h4.position = legislator.position_long.capitalize

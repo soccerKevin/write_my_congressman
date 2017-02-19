@@ -7,6 +7,6 @@ class LegislatorsController < ApplicationController
   def index
     legislator_names = Officials.names_from_address current_user.address.street_address
     last_names = legislator_names.map{ |name| name.split(' ').last }
-    @legislators = Legislator.where(last_name: last_names).select{ |l| legislator_names.include? l.name }
+    @legislators = Legislator.where(last_name: last_names)
   end
 end
