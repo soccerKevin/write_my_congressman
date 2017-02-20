@@ -2,6 +2,9 @@
 
 ##SETUP
 brew install docker
+
+install postgresql
+
 rake db:migrate
 rake create_legislators
 
