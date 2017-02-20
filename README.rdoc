@@ -1,11 +1,15 @@
 == README
 
 ##SETUP
+brew install docker
 rake db:migrate
 rake create_legislators
 
-###server
+### Server
 localhost (for now)
+
+## Deploy
+brew install awscli
 
 Things you may want to cover:
 
