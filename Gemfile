@@ -17,19 +17,19 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'byebug'
+gem 'pry'
+gem 'pry-byebug'
+gem 'mechanize'
+gem 'human_name_parser'
 
 group :production do
   gem 'pg'
 end
 
 group :development, :test do
-  gem 'byebug'
-  gem 'pry'
-  gem 'pry-byebug'
   gem 'rspec-rails', '~> 3.5'
   gem 'nokogiri'
-  gem 'mechanize'
-  gem 'human_name_parser'
   gem 'sqlite3'
 end
 
@@ -39,5 +39,4 @@ group :development do
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'domp'
 end
