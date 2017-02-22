@@ -1,16 +1,13 @@
 require_relative 'lib_helper'
-
-def stubbed_response
-  @stubbed_response ||= fixture('google_civic_response.json')
-end
-
-def json_response
-  JSON.parse stubbed_response
-end
-
 Officials = VendorAPI::GoogleCivic::Officials
+
+
 RSpec.describe Officials do
   include ResponseStubber
+
+  def stubbed_response
+    @stubbed_response ||= fixture('google_civic_response.json')
+  end
 
   before :all do
     @address = "465 Andover Court, Gurnee, IL 60031"
