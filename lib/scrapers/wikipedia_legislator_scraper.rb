@@ -6,6 +6,7 @@ require 'human_name_parser'
 module WikipediaScraper
   class LegislatorImages
     ROOT = 'https://en.wikipedia.org/wiki'
+    FILES_REGEX = /\.(jpg|jpeg|gif|png)/
 
     def initialize(save_path)
       @agent = Mechanize.new
@@ -14,7 +15,7 @@ module WikipediaScraper
 
     def get_legislator(l_name, wiki)
       slug = slugify_wiki wiki
-      page = get_page "#{ROOT}/#{slug}"
+      page = @agent.get "#{ROOT}/#{slug}"
       img_src = image_from_page page
       src = parse_src img_src
       fetch_and_save l_name, src
@@ -28,30 +29,16 @@ module WikipediaScraper
     end
 
     def parse_src(start_url)
-      files_regex = /\.(jpg|jpeg|gif|png)/
-      two_extensions = start_url.downcase.scan(files_regex).size > 1
+      two_extensions = start_url.downcase.scan(FILES_REGEX).size > 1
       r_index = two_extensions ? start_url.rindex('/') : start_url.length
       url = start_url[2...r_index].gsub '/thumb', ''
       "https://#{url}"
     end
 
     def image_from_page(page)
-      page.css('.infobox.vcard a.image img').first.attributes['src'].value
-    end
-
-    def get_page(url)
-      page = @agent.get url
       subtitles = page.css '#mw-content-text > p'
-      raise 'Not found' if subtitles.any? && subtitles.first.text.include?('may refer to:')
-      page
-    end
-
-    def slugify_name(l_name)
-      n = HumanNameParser.parse l_name
-      s1 = n.to_s.gsub ' ', '_'
-      s2 = "#{s1}_(politician)"
-      s3 = "#{n.first}_#{n.last}"
-      [s1, s2, s3]
+      raise 'Image Not found' if subtitles.any? && subtitles.first.text.include?('may refer to:')
+      page.css('.infobox.vcard a.image img').first.attributes['src'].value
     end
 
     def slugify_wiki(wiki)
