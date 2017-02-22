@@ -12,7 +12,7 @@ gem 'slim-rails'
 gem 'devise'
 gem 'httparty'
 gem 'phone'
-gem 'StreetAddress', :require => "street_address", git: 'https://github.com/derrek/street-address'
+gem 'StreetAddress', require: "street_address", git: 'https://github.com/derrek/street-address'
 
 gem 'omniauth'
 gem 'omniauth-twitter'
@@ -41,4 +41,8 @@ group :development do
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
+end
+
+group :test do
+  gem 'simplecov', require: false, group: :test
 end
