@@ -7,4 +7,12 @@ module ResponseStubber
       to_return body: response, headers: { content_type: 'application/json'
       }
   end
+
+  def stubbed_response
+    @stubbed_response ||= {}
+  end
+
+  def json_response
+    JSON.parse stubbed_response
+  end
 end
