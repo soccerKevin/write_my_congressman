@@ -16,10 +16,7 @@ private
 
   def oauth
     auth_params = request.env["omniauth.auth"]
-    pp "auth_params.provider", auth_params.provider
-    pp "provider = AuthenticationProvider.where(name: \"#{auth_params.provider}\").first"
     provider = AuthenticationProvider.where(name: auth_params.provider).first
-    pp "provider", provider
     authentication = provider.user_authentications.where(uid: auth_params.uid).first
     existing_user = current_user || User.where('email = ?', auth_params['info']['email']).first
 
