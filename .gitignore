@@ -17,3 +17,5 @@
 /tmp
 .secrets
 db/raw/images/legislators
+.DS_Store
+coverage/

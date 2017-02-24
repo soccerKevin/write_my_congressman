@@ -32,17 +32,14 @@ module LegislatorFactory
     ids = json['id']
     l_name = json['name']
     bio = json['bio']
+
     term = json['terms'].last
+    district = term['district'] if term['type'] == 'rep'
+
     address = Address.from_line term['address']
     phone = Phone.create!({number: term['phone']})
+    fax = Phone.create!({number: term['fax']}) rescue fax = nil
 
-    begin
-      fax = Phone.create!({number: term['fax']})
-    rescue
-      fax = nil
-    end
-
-    district = term['district'] if term['type'] = 'rep'
     social = json['social']
     if social
       twitter_name = social['twitter'],

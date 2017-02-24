@@ -256,9 +256,9 @@ Devise.setup do |config|
       prompt: "consent"
     }
 
-  config.omniauth :twitter,
-    Rails.application.secrets.twitter_oauth2_app_id,
-    Rails.application.secrets.twitter_oauth2_app_secret
+  # config.omniauth :twitter,
+  #   Rails.application.secrets.twitter_oauth2_app_id,
+  #   Rails.application.secrets.twitter_oauth2_app_secret
 
   config.omniauth :facebook,
     Rails.application.secrets.facebook_oauth2_app_id,

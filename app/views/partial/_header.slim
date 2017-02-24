@@ -1,6 +1,7 @@
 header#main_header
   .left
-    #logo write my congressman
+    #logo
+      = image_tag asset_path 'logo.jpg'
 
   .right
     - if user_signed_in?
