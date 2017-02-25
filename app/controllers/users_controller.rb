@@ -6,7 +6,11 @@ class UsersController < ApplicationController
 
   def update
     current_user.update! user_params
+<<<<<<< HEAD
+    redirect_to 'legislators'
+=======
     redirect_to '/legislators'
+>>>>>>> a879d437cf869a79946b316f4e80ec521dd8de22
   rescue Exception => e
     render action: :edit
   end

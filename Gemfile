@@ -1,4 +1,4 @@
-ruby '2.3.1'
+ruby '2.3.3'
 
 source 'https://rubygems.org'
 gem 'rails', '4.2.7.1'
@@ -41,6 +41,7 @@ group :development do
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
+	gem 'faker'
 end
 
 group :test do
