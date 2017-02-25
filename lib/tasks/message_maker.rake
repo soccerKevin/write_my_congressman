@@ -5,14 +5,12 @@ Dir['./lib/tasks/**/*.rb'].each{ |file| require file }
 namespace :messages do
 
   task create: :environment do
-		create_users
-		create_topics
+		create_users unless User.first
+		create_topics unless Topic.first
     create_messages
   end
 
   task reset: :environment do
-		User.destroy_all
-		Topic.destroy_all
     Message.destroy_all
     create_messages
   end
