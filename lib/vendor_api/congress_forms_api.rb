@@ -22,6 +22,23 @@ module VendorAPI
       rescue
         return []
       end
+
+      def get_elements_hash(bio_ids)
+        path = '/retrieve-form-elements'
+        # headers = { 'Content-Type': 'application/json' }
+        headers = { 'Content-Type': 'application/x-www-form-urlencoded' }
+        body = { 'bio_ids' => bio_ids }
+        response = post path, headers: headers, body: body
+        return response.map do |k,v|
+          begin
+            topics = v['required_actions'].select{|field| field['value'].downcase.include?('topic') }.first['options_hash']
+            t = (topics.class == Hash ? topics.keys : topics).flatten
+          rescue Exception => e
+            t = nil
+          end
+          [k, t]
+        end
+      end
     end
   end
 end

@@ -39,13 +39,11 @@ namespace :legislators do
   end
 
   task all_form_fields: :environment do
-    topics = []
     bio_ids = Legislator.all.map{ |l| l[:bio_id] }[0...-1]
-    bio_ids.each_slice(10) do |ids|
-      topics.push VendorAPI::CongressForms.get_form_elements ids
-    end
+    topics = bio_ids.each_slice(10).map do |ids|
+      VendorAPI::CongressForms.get_elements_hash ids
+    end.map{ |t| t.to_h.values }.flatten.uniq.join(',')
     File.open("./notes/topics.txt", 'w'){ |f| f.write topics }
-    binding.pry
   end
 end
 
