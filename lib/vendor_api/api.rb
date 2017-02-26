@@ -10,6 +10,10 @@ module VendorAPI
         HTTParty.get "#{@@ROOT}#{path}?#{query_hash.to_query}"
       end
 
+      def post(path, **options)
+        HTTParty.post "#{@@ROOT}#{path}", headers: options[:headers], body: options[:body], query: options[:query], debug_output: $stdout
+      end
+
     private
 
       def sanitize_address(address)

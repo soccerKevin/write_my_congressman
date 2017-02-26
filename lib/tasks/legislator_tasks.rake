@@ -2,6 +2,7 @@ require 'pp'
 require 'pry'
 Dir['./lib/tasks/legislators/*.rb'].each{ |file| require file }
 Dir['./lib/scrapers/*.rb'].each{ |file| require file }
+Dir['./lib/vendor_api/*.rb'].each{ |file| require file }
 
 @legislator_image_path = 'db/raw/images/legislators'
 @legislator_file = './db/raw/legislators-current.yaml'
@@ -35,6 +36,16 @@ namespace :legislators do
     count = matching.count
     names = matching.map{ |l| l['name']['official_full'] }
     pp names, count
+  end
+
+  task all_form_fields: :environment do
+    topics = []
+    bio_ids = Legislator.all.map{ |l| l[:bio_id] }[0...-1]
+    bio_ids.each_slice(10) do |ids|
+      topics.push VendorAPI::CongressForms.get_form_elements ids
+    end
+    File.open("./notes/topics.txt", 'w'){ |f| f.write topics }
+    binding.pry
   end
 end
 
