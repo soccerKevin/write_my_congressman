@@ -1,9 +1,3 @@
-abortion:
-- family planning
-- life
-- reproductive rights
-academy:
-- nominations
 administrative:
 - appointments
 - consul general
@@ -37,6 +31,8 @@ animal:
 - rights
 - welfare
 - wildlife
+armed services:
+- troop benefits
 arts:
 - culture
 - history
@@ -211,6 +207,7 @@ energy:
 - renewable energy
 - water policy
 environment:
+- DAPL
 - cap & trade
 - carbon policy
 - clean air
@@ -397,7 +394,7 @@ medicaid:
 medicare:
 - reform
 - social security
-middle east:
+middleeast:
 - iran
 - iraq
 military:
@@ -409,7 +406,6 @@ military:
 - personnel
 - retiree health care
 - veterans
-- troop benefits
 minority issues:
 - asian american issues
 miscellaneous:
@@ -566,11 +562,14 @@ veterans:
 - nationalsecurity
 - policy
 - tricare issues
-- va
+- VA Hospital
 violence:
 - victim's rights
 - violence against women act
+- domestic violence
 voter rights:
+- IDs
+- Denied Voting
 war:
 - afghanistan
 - iraq
@@ -578,6 +577,7 @@ war:
 water:
 - resources & development
 - rivers
+- Flint, Mi
 welfare:
 - poverty
 - social programs
@@ -590,5 +590,72 @@ woman's issues:
 - reproductive rights
 - rights/choice
 - violence
+  - abortion:
+  - family planning
+  - life
+  - reproductive rights
 workforce:
 - unemployment
+
+
+
+Flint
+HealthCare:
+  ACA
+  medicaid
+  medicare
+environment:
+  DAPL
+  EPA
+education:
+  DOEducation
+amendments
+admnistration:
+  election
+  congress
+  campaign finances
+RUSSIA
+Women's Rights
+economy:
+defense:
+voter rights:
+press:
+national parks:
+judiciary:
+internet:
+international:
+homeland security:
+
+Impeach Trump
+  - Russia
+  - Election
+  - Fraud
+  - Conflicts of interest
+  - Emuluments clause
+  - Michael Flynn
+Cabinet Picks
+ACA
+Freedom of the Press
+Environment
+  - EPA (keep it!)
+  - National Parks
+Dept of Education
+Free Internet
+  - net neutrality
+  - privacy
+Money in Politics
+  - campaign finances
+  - ciizens united
+Women's rights
+  - abortion
+  - contraception
+  - check ups
+  - PP
+Voter Rights
+  - gerrymandering
+  - id cards
+  - restricted vote times
+Separation of Church and state
+
+
+
