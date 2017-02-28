@@ -1,6 +1,9 @@
 == README
 
 ##SETUP
+# JS text editor
+npm install froala-editor
+
 brew install docker
 
 install postgresql
