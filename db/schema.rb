@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306033438) do
+ActiveRecord::Schema.define(version: 20170306050521) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "legislator_id"
@@ -56,6 +56,13 @@ ActiveRecord::Schema.define(version: 20170306033438) do
   end
 
   add_index "legislators", ["last_name"], name: "index_legislators_on_last_name"
+
+  create_table "legislators_messages", id: false, force: :cascade do |t|
+    t.integer "legislator_id", null: false
+    t.integer "message_id",    null: false
+  end
+
+  add_index "legislators_messages", ["legislator_id", "message_id"], name: "index_legislators_messages_on_legislator_id_and_message_id"
 
   create_table "legislators_users", id: false, force: :cascade do |t|
     t.integer "legislator_id", null: false
