@@ -1,0 +1,661 @@
+administrative:
+- appointments
+- consul general
+- innauguration
+- law and regulatory reform
+- lobbying
+- office
+- oversight and government reform
+- town hall
+- ways and means
+adoption:
+- child care
+- domestic
+- foreign
+- foster care
+agriculture:
+- animal rights
+- food
+- forestry
+- usda
+amendments:
+- 1st
+- 2nd
+- new
+animal:
+- conservation
+- endangered species
+- farming
+- legislation
+- protection
+- rights
+- welfare
+- wildlife
+armed services:
+- troop benefits
+arts:
+- culture
+- history
+- humanities
+assistance:
+- I need personal help
+- citizenship and immigration
+- federal
+- housing
+- veterans
+banking:
+- export-importbank
+- finance
+- housing
+- insurance
+- securities
+- treasury
+border:
+- enforcement
+- homeland security
+- immigration
+- port security
+budget:
+- appropriations
+- census
+- defense
+- economy
+- federal
+- finance
+- spending
+- taxes
+business:
+- auto industry
+- commerce
+- economic development
+- entrepreneurs
+- industry
+- smallbusiness
+- start-ups
+campaign:
+- finance
+- elections
+- reform
+casework:
+- concerns
+- help with federal agency
+children:
+- autism
+- child abuse
+- child welfare
+- early childhood education
+- families
+- protective services
+citizenship and immigration:
+civil rights:
+- humanities
+- judiciary
+- minority issues
+- religion
+climate:
+- global warming
+commerce:
+- business
+- consumer issues
+- small business
+communication:
+- fcc
+- internet
+- phones
+- radio
+- technology
+- television
+- tv
+community:
+- development and organizations
+- safety
+congress:
+- elections
+- ethics
+- executive
+- government reform
+- hispanic caucus
+- legislative branch
+- legislature
+- procedures
+constitution:
+- amendments
+- civil rights
+- law
+consumer affairs:
+- protections
+- safety
+controlled substances:
+crime:
+- controlled substances
+- criminal law enforcement
+- death penalty
+- drugs
+- gun control
+- hate crimes
+- police
+- prisons
+- public safety
+debt:
+- ceiling
+- deficit
+defense:
+- cyber security
+- department of defense
+- department of homeland security
+- detainee treatment
+- drones
+- intelligence
+- intelligence
+- military
+- national security
+- nuclear weapons
+- terrorism
+disabilities:
+- relief
+disease and genetics:
+- research
+drugs:
+- drug policy
+- illegal drugs
+- narcotics / illicit drugs
+- substance abuse
+- tobacco
+economy:
+- banking and finance
+- budget
+- commerce
+- development
+- jobs
+- monetary policy
+- public finance
+- recovery
+- small business
+- spending
+- tax policy
+- taxes
+education:
+- colleges & universities
+- elementary and secondary education
+- english language
+- higher education
+- k-12
+- labor
+- schools
+- student inquiry
+- student loans
+- technology
+election:
+- campaign
+- party issues
+- voting rights
+emergency management:
+- fema
+- natural disasters
+- recovery
+employment:
+- minimum wage
+- more support for federal employees
+- unions
+- volunteer
+energy:
+- independence
+- national energy tax
+- natural resources
+- oil and gas
+- parks and public lands
+- renewable energy
+- water policy
+environment:
+- DAPL
+- cap & trade
+- carbon policy
+- clean air
+- clean water
+- climate
+- climate change
+- coal mining
+- conservation
+- energy
+- forestry
+- keystone pipeline
+- mining
+- natural resources
+- public works
+- waste
+- wildlife
+ethics:
+- campaign finance
+- clean government
+- government reform
+- governmental
+- lobbying
+- u.s.congress
+executive branch:
+- president
+- vice president
+family:
+- adoptions
+- children's issues
+- domestic violence
+- marriage
+- planning
+- values
+finance:
+- banking
+- financial crisis
+- financial privacy
+- financial regulation
+- financial services
+- housing
+- identity theft
+first responders:
+- fire
+- police
+fisheries:
+- maritime
+- oceanpolicies
+- waterfront
+flood:
+- control
+- information
+- insurance
+food:
+- FDA
+- and nutrition
+- safety
+- stamps
+foreign policy:
+- ambassadors
+- internationalfinance
+- trade
+- united nations
+forestry:
+- forest jobs and recreation act
+- jobs
+- recreation
+government:
+- accountability
+- antitrust
+- competition
+- filibuster
+grants:
+- contracts
+- economicdevelopment
+- letters
+- scholarships
+guns and firearms:
+- control
+- crime
+- laws
+- ownership
+- preventing gun violence
+- rights
+- safety
+- secondamendment
+- tickets
+- violence
+health care:
+- chinese dry wall
+- costs
+- disease
+- electronic medical records
+- hospitals
+- human services
+- insurance
+- medicaid
+- medical providers
+- medicare
+- medicine
+- mental health
+- non-m&m
+- obamacare
+- patients rights
+- practicioners
+- prescription drugs
+- research
+- safety
+- support for health care reform
+help:
+- asylum
+homeland security:
+- emergency management
+- fema
+- law enforcement
+- maritime
+- terrorism
+- tsa
+housing:
+- community development
+- homelessness
+- utilities
+- welfare
+immigration:
+- border security
+- passports
+- visas
+intelligence:
+- cia
+- committee
+- national security
+- surveillance
+interior:
+- forestry
+- national parks
+international:
+- affairs
+- foreignaid
+- humanrights
+- relations
+- trade
+internet:
+- freedom
+- privacy
+jobs:
+- creation
+- economy
+- employment
+- labor
+- manufacturing
+- training
+judiciary:
+- affairs
+- civil rights
+- committee
+- constitutional rights
+- courts
+- crime
+- government oversight
+- gun control
+- immigration
+- judges
+- legal issues
+- nominations - supreme court - cabinet
+- tort reform
+labor:
+- employment
+- jobs
+- minimum wage
+- pensions
+- protections
+- regulations
+- training
+- unions
+- workforce
+law:
+- crime
+- enforcement
+- justice
+legislation:
+- citizens united
+medicaid:
+- chip
+- prescription drugs
+medicare:
+- reform
+- social security
+middleeast:
+- iran
+- iraq
+military:
+- academy nomination
+- armed services
+- corps of engineers
+- defense
+- operations
+- personnel
+- retiree health care
+- veterans
+minority issues:
+- asian american issues
+miscellaneous:
+national parks:
+- community service
+- defense
+- federal lands
+- parks & forests
+- security
+nationaldebt:
+- debt
+- deficit
+native americans:
+- alaska natives
+- hawaiian natives
+natural:
+- committee
+- emergency response
+- forestry and parks
+- resources
+natural disasters:
+- hurricanes
+- tornados
+nutrition:
+- hunger issues
+- snap
+other:
+passports:
+- state department
+- visas
+pension:
+- military
+- retirement security
+- social security
+personal:
+- credit and personal finance
+- mortgage assistance
+- privacy
+- property rights
+post office:
+- civil service issues
+- reform
+poverty:
+- social safetynet programs
+- tanf
+press:
+protections:
+- finance protection bureau
+- financial protections
+public lands:
+- historical preservation
+- land management
+- national parks
+- natural resources
+public works:
+- aviation
+- infrastructure
+- rural development
+- transportation
+religion:
+- freedoms
+- israel
+- jewish issues
+- rights
+- separation of church and state
+requests:
+- flag
+- greeting
+- invitation
+- letter
+- meeting
+retirement:
+- disability insurance
+- security
+safety:
+- product safety
+science:
+- GMO
+- cloning
+- innovation
+- national labs
+- space
+- stem cells
+- technology
+seniors:
+- aging
+- airman
+- citizens
+- issues
+- medicare
+- pensions
+- retirement
+- social security
+- wep/gpo
+small business:
+- committee
+- economic development
+social:
+- access to care
+- census
+- hunger
+- issues
+- lgbt - equality - rights - marriage - values
+- low-income benefits
+- public assistance programs
+social programs:
+- public assistance
+- snap
+- tanf
+social security:
+- administration
+- medicare
+- ssdi
+space:
+- aerospace
+- america's mission in space
+- nasa
+- space exploration
+taxes:
+- economy
+- fiscal responsibility
+- irs
+- policy
+- relief
+- trade
+technology:
+- cabletv
+- cybersecurity
+- data privacy
+- federal communications commission
+- internet
+- telecommunications
+terrorism:
+- acts
+- intelligence
+thanks:
+- congratulations
+trade:
+- commerce
+- domestic
+- economy
+- international
+- steel
+transportation:
+- authorization
+- infrastructure
+- public works
+travel:
+- tourism
+unemployment:
+- insurance
+veterans:
+- affairs
+- nationalsecurity
+- policy
+- tricare issues
+- VA Hospital
+violence:
+- victim's rights
+- violence against women act
+- domestic violence
+voter rights:
+- IDs
+- Denied Voting
+war:
+- afghanistan
+- iraq
+- terrorism
+water:
+- resources & development
+- rivers
+- Flint, Mi
+welfare:
+- poverty
+- social programs
+wildlife:
+- wolves
+woman's issues:
+- children
+- contraception
+- health
+- reproductive rights
+- rights/choice
+- violence
+  - abortion:
+  - family planning
+  - life
+  - reproductive rights
+workforce:
+- unemployment
+
+
+
+Flint
+HealthCare:
+  ACA
+  medicaid
+  medicare
+environment:
+  DAPL
+  EPA
+education:
+  DOEducation
+amendments
+admnistration:
+  election
+  congress
+  campaign finances
+RUSSIA
+Women's Rights
+economy:
+defense:
+voter rights:
+press:
+national parks:
+judiciary:
+internet:
+international:
+homeland security:
+
+Impeach Trump
+  - Russia
+  - Election
+  - Fraud
+  - Conflicts of interest
+  - Emuluments clause
+  - Michael Flynn
+Cabinet Picks
+ACA
+Freedom of the Press
+Environment
+  - EPA (keep it!)
+  - National Parks
+Dept of Education
+Free Internet
+  - net neutrality
+  - privacy
+Money in Politics
+  - campaign finances
+  - ciizens united
+Women's rights
+  - abortion
+  - contraception
+  - check ups
+  - PP
+Voter Rights
+  - gerrymandering
+  - id cards
+  - restricted vote times
+Separation of Church and state
+
+
+
