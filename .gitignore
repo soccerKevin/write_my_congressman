@@ -20,3 +20,8 @@ db/raw/images/legislators
 .DS_Store
 coverage/
 notes/
+
+#Vim buffer files
+**/*.swp
+**/*.swn
+**/*.swo
