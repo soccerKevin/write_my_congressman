@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :address
+  has_many :messages
+
   accepts_nested_attributes_for :address
 
   # validates :first_name, :last_name, :address, :email, presence: true

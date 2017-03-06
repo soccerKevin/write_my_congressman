@@ -3,6 +3,7 @@ require 'pry'
 class Address < ActiveRecord::Base
   belongs_to :legislator
   belongs_to :user
+
   validates :line, :city, :state, :zip, presence: true
 
   class << self
