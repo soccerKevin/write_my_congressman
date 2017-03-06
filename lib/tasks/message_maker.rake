@@ -5,9 +5,7 @@ Dir['./lib/tasks/**/*.rb'].each{ |file| require file }
 namespace :messages do
 	
 	num = ARGV[1].to_i || 100
-	pp num
-	pp num.class
-	pp 'ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp' 
+
   task create: :environment do
 		Rake.application['users:create'].invoke unless User.first
 		create_topics unless Topic.first
