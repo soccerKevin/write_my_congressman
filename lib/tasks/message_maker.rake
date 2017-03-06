@@ -3,25 +3,25 @@ require 'pry'
 Dir['./lib/tasks/**/*.rb'].each{ |file| require file }
 
 namespace :messages do
-
+	
+	num = ARGV[1].to_i || 100
+	pp num
+	pp num.class
+	pp 'ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp' 
   task create: :environment do
-		create_users unless User.first
+		Rake.application['users:create'].invoke unless User.first
 		create_topics unless Topic.first
-    create_messages
+    create_messages num
   end
 
   task reset: :environment do
     Message.destroy_all
-    create_messages
+    create_messages num
   end
 end
 
-def create_messages 
-	MessageFactory.create_messages 100
-end
-
-def create_users
-	UserFactory.create_users 50
+def create_messages num 
+	MessageFactory.create_messages num
 end
 
 def create_topics 
