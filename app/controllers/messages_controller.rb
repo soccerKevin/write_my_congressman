@@ -5,6 +5,6 @@ class MessagesController < ApplicationController
     @user = current_user
     @message = @user.messages.build
     @user.address || @user.build_address
-    @legislators = @user.legislators
+    @legislators = @user.legislators.reject{ |l| %w{trump pence}.include? l.last_name.downcase }
   end
 end
