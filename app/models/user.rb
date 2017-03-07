@@ -25,4 +25,12 @@ class User < ActiveRecord::Base
       last_name: info['last_name']
     })
   end
+
+  def legislators
+    return [] unless self.address.persisted?
+    require "#{Rails.root}/lib/vendor_api/google_civic_api"
+    legislator_names = VendorAPI::GoogleCivic::Officials.names_from_address self.address.street_address
+    last_names = legislator_names.map{ |name| name.split(' ').last }
+    @legislators = Legislator.where(last_name: last_names)
+  end
 end

@@ -8,11 +8,7 @@ private
   def after_sign_in_path_for(resource)
     if resource.is_a? User
       user = resource
-      if user.address.present?
-        legislators_path
-      else
-        edit_user_path user
-      end
+      new_message_path
     end
   end
 end

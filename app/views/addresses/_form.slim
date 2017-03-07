@@ -1,4 +1,5 @@
-- title ||= true
+- title = title.nil? ? title : true
+
 .address_form
   - if title
     h3 Address
