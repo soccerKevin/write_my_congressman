@@ -1,0 +1,7 @@
+div class="legislator #{legislator.first_name}_#{legislator.last_name} #{legislator.party.downcase}"
+  figure
+    = image_tag asset_path "legislators/#{legislator.image_name}"
+
+  .info
+    .name = legislator.name
+    .position = legislator.position_long.capitalize
