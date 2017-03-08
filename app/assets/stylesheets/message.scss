@@ -1,0 +1,13 @@
+.message_container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .legislators.container{
+    flex-basis: 60%;
+  }
+
+  .user_info{
+    flex-basis: 30%
+  }
+}

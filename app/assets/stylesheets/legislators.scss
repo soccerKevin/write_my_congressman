@@ -11,8 +11,8 @@
     display: flex;
     border: solid 2px #333;
     border-radius: 1rem;
-    margin: 1.5rem 1rem;
     min-width: 10rem;
+    height: 8rem;
 
     &.democrat{ border-color: blue; }
     &.republican{ border-color: red; }

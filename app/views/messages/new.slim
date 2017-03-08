@@ -1,3 +1,8 @@
 .message_container
-  = render partial: 'users/edit', locals: { user: @user, remote: true }
+  .legislators.container
+    = render partial: 'messages/legislator', collection: @legislators, as: :legislator
+
+  .user_info
+    = render partial: 'users/edit', locals: { user: @user, remote: true }
+
   = render partial: 'messages/form'
