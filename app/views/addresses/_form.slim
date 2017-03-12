@@ -11,7 +11,7 @@
     = builder.text_field :city, placeholder: :City
 
   .field
-    = builder.select :state, collection: States::Array.unshift('State')
+    = builder.select :state, States: States::Array
 
   .field
     = builder.text_field :zip, placeholder: :zip
