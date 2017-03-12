@@ -1,16 +1,12 @@
-- defaults = { address: true, first_name: true, last_name: true, email: true, remote: false }.merge local_assigns
+- defaults = { address: true, name: true, email: true, remote: false }.merge local_assigns
 
 = form_for user, method: :put, remote: defaults[:remote] do |user_form|
+  - u = user_form.object
 
-  - if defaults[:first_name]
+  - if defaults[:name]
     .field
-      = user_form.label :first_name
-      = user_form.text_field :first_name, class: 'first_name'
-
-  - if defaults[:last_name]
-    .field
-      = user_form.label :last_name
-      = user_form.text_field :last_name, class: 'last_name'
+      = user_form.label :name
+      = user_form.text_field :name, class: 'name'
 
   - if defaults[:email]
     .field

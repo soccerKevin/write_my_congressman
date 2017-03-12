@@ -37,15 +37,18 @@ class ApplicationController < ActionController::Base
   # called (once) when the user logs in, insert any code your application needs
   # to hand off from guest_user to devise_current_user.
   def logging_in
-    guest_user.messages.all.each do |message|
+    guest_messages = guest_user.messages.all
+    guest_messages.each do |message|
       message.user_id = devise_current_user.id
       message.save!
     end
+    devise_current_user.guest = false
+    devise_current_user.save! validate: false
   end
 
   def create_guest_user
-    u = User.create(first_name: "guest", last_name: "who", email: "guest_#{Time.now.to_i}#{rand(100)}@example.com")
-    u.save!(:validate => false)
+    u = User.create name: "guest", email: "guest_#{Time.now.to_i}#{rand(100)}@example.com", guest: true
+    u.save! validate: false
     session[:guest_user_id] = u.id
     u
   end
