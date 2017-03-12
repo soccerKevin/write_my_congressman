@@ -1,3 +1,8 @@
 = form_for @message do |message|
-  = message.text_field :subject
-  = message.text_area :body
+  .field
+    = message.label :subject
+    = message.text_field :subject
+
+  .field
+    = message.label :body
+    = message.text_area :body

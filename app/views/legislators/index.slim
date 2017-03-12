@@ -1,1 +1,2 @@
-= render partial: 'legislators/index'
+h2.legislator-title.container Which Legislators would you like to contact?
+.legislators.container = render partial: 'legislators/show', collection: @legislators, as: :legislator

@@ -1,8 +1,14 @@
-.message_container
-  .legislators.container
-    = render partial: 'messages/legislator', collection: @legislators, as: :legislator
+.message_container.container
+  .legislator_container
+    h3 Who would you like to contact
+
+    .legislators
+      = render partial: 'messages/legislator', collection: @legislators, as: :legislator
 
   .user_info
-    = render partial: 'users/edit', locals: { user: @user, remote: true }
+    = render partial: 'messages/user', locals: { user: @user, remote: true }
 
-  = render partial: 'messages/form'
+  .message_container
+    = render partial: 'messages/form'
+
+  .template_container style="min-width: 30px;"
