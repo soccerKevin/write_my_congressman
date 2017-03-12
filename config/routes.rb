@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :legislators, only: :index
   resources :messages, only: [:new, :edit, :create]
-  root 'static#index', as: :home
+  root 'messages#new', as: :home
 end
