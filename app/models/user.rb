@@ -40,14 +40,22 @@ class User < ActiveRecord::Base
   end
 
   def first_name
-    parser.first
+    parser&.first
   end
 
   def last_name
-    parser.last
+    parser&.last
   end
 
   def guest?
     !!guest
+  end
+
+  def name
+    read_attribute(:name) unless guest?
+  end
+
+  def email
+    read_attribute(:name) unless guest?
   end
 end
