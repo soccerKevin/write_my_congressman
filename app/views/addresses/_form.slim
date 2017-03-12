@@ -5,17 +5,13 @@
     h3 Address
 
   .field
-    = builder.label :line, :Address
-    = builder.text_field :line
+    = builder.text_field :line, placeholder: :Address
 
   .field
-    = builder.label :city
-    = builder.text_field :city
+    = builder.text_field :city, placeholder: :City
 
   .field
-    = builder.label :state
-    = builder.select :state, collection: States::Array.unshift('select your state')
+    = builder.select :state, collection: States::Array.unshift('State')
 
   .field
-    = builder.label :zip
-    = builder.text_field :zip
+    = builder.text_field :zip, placeholder: :zip

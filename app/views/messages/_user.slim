@@ -5,13 +5,11 @@
 
   - if defaults[:name]
     .field
-      = user_form.label :name
-      = user_form.text_field :name, class: 'name'
+      = user_form.text_field :name, class: 'name', placeholder: :name
 
   - if defaults[:email]
     .field
-      = user_form.label :email
-      = user_form.email_field :email, class: 'email'
+      = user_form.email_field :email, class: 'email', placeholder: :email
 
   - if defaults[:address]
     .address
