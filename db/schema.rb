@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222013706) do
+ActiveRecord::Schema.define(version: 20170306050521) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "legislator_id"
@@ -56,6 +56,20 @@ ActiveRecord::Schema.define(version: 20170222013706) do
   end
 
   add_index "legislators", ["last_name"], name: "index_legislators_on_last_name"
+
+  create_table "legislators_messages", id: false, force: :cascade do |t|
+    t.integer "legislator_id", null: false
+    t.integer "message_id",    null: false
+  end
+
+  add_index "legislators_messages", ["legislator_id", "message_id"], name: "index_legislators_messages_on_legislator_id_and_message_id"
+
+  create_table "legislators_users", id: false, force: :cascade do |t|
+    t.integer "legislator_id", null: false
+    t.integer "user_id",       null: false
+  end
+
+  add_index "legislators_users", ["legislator_id", "user_id"], name: "index_legislators_users_on_legislator_id_and_user_id"
 
   create_table "messages", force: :cascade do |t|
     t.integer "topic_id"
@@ -106,5 +120,16 @@ ActiveRecord::Schema.define(version: 20170222013706) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "versions", force: :cascade do |t|
+    t.string   "item_type",  null: false
+    t.integer  "item_id",    null: false
+    t.string   "event",      null: false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
 
 end

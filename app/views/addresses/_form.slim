@@ -1,20 +1,21 @@
-- title ||= true
+- title = title.nil? ? title : true
+
 .address_form
   - if title
     h3 Address
 
   .field
-    = builder.label :line, 'Line: '
+    = builder.label :line, :Address
     = builder.text_field :line
 
   .field
-    = builder.label :city, 'City: '
+    = builder.label :city
     = builder.text_field :city
 
   .field
-    = builder.label :state, 'State: '
+    = builder.label :state
     = builder.select :state, collection: States::Array.unshift('select your state')
 
   .field
-    = builder.label :zip, 'Zip: '
+    = builder.label :zip
     = builder.text_field :zip

@@ -1,8 +1,11 @@
 require 'pry'
 
 class Address < ActiveRecord::Base
+  has_paper_trail
+
   belongs_to :legislator
   belongs_to :user
+
   validates :line, :city, :state, :zip, presence: true
 
   class << self

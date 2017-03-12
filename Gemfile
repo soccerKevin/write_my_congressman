@@ -24,6 +24,7 @@ gem 'pry-byebug'
 gem 'mechanize'
 gem 'human_name_parser'
 gem 'rails_12factor'
+gem 'paper_trail'
 
 group :production do
   gem 'pg'
