@@ -15,3 +15,5 @@
     .address
       = user_form.fields_for :address do |address|
         = render 'addresses/form', builder: address
+
+  = user_form.submit 'Save', class: 'hidden save'

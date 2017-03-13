@@ -1,12 +1,13 @@
 require 'pry'
 
 class Address < ActiveRecord::Base
+  include ActiveModel::Validations
   has_paper_trail
 
   belongs_to :legislator
   belongs_to :user
 
-  validates :line, :city, :state, :zip, presence: true
+  validates_presence_of :line, :city, :state, :zip
 
   class << self
     def from_line(address)
