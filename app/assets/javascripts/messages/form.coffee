@@ -9,9 +9,9 @@ class @Form
       url: @url()
       data: @data()
       dataType: 'JSON'
-    ).done( ()=>
+    ).done( =>
       console.log "save successful"
-    ).fail ()=>
+    ).fail =>
       console.log "failed to save"
 
   url: ->
@@ -30,13 +30,13 @@ class @Form
     empties.includes true
 
   is_remote: ->
-    @element.attr 'data-remote' == 'true'
+    @element.attr('data-remote') == 'true'
 
   rails_save: ->
     @element.find('input[type=sumbit]').click()
 
   data: ->
-    data = new Data
+    data = new Data()
     @fields().map (index, field)->
       data.add_field_name field.name(), field.value()
     JSON.parse JSON.stringify data.hash
