@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170312094216) do
+ActiveRecord::Schema.define(version: 20170314043632) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "legislator_id"
@@ -76,6 +76,12 @@ ActiveRecord::Schema.define(version: 20170312094216) do
     t.integer "user_id"
     t.string  "subject"
     t.text    "body"
+    t.string  "name"
+    t.string  "email"
+    t.string  "address_line"
+    t.string  "city"
+    t.string  "state"
+    t.string  "zip"
   end
 
   create_table "phones", force: :cascade do |t|
