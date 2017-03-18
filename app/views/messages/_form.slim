@@ -1,6 +1,34 @@
 = form_for @message do |message|
-  .field
-    = message.text_field :subject, placeholder: :Subject
+  - pl = placeholders
+  .legislator_container
+    h3 Who would you like to contact
 
-  .field
-    = message.text_area :body, placeholder: :Body
+    .legislators
+      = render partial: 'messages/legislator', collection: @legislators, as: :legislator
+
+  .user_info
+    .field
+      = message.text_field :name, class: 'name', placeholder: pl[:name]
+
+    .field
+      = message.email_field :email, class: 'email', placeholder: pl[:email]
+
+    .address
+      .field
+        = message.text_field :address_line, placeholder: pl[:address_line]
+
+      .field
+        = message.text_field :city, placeholder: pl[:city]
+
+      .field
+        = message.select :state, States::Array, prompt: 'State', selected: pl[:state], include_blank: 'State'
+
+      .field
+        = message.text_field :zip, placeholder: pl[:zip]
+
+  .body_section
+    .field
+      = message.text_field :subject, placeholder: pl[:subject]
+
+    .field
+      = message.text_area :body, placeholder: pl[:body]
