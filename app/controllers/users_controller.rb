@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def update
     current_user.update! user_params
-    redirect_to '/legislators'
+    redirect_to new_message_path
   rescue Exception => e
     render action: :edit
   end

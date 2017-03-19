@@ -9,7 +9,11 @@ private
   def after_sign_in_path_for(resource)
     if resource.is_a? User
       user = resource
-      new_message_path
+      if user.address.blank?
+        edit_user_path user
+      else
+        new_message_path
+      end
     end
   end
 end

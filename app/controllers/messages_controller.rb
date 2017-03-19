@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :require_user_address
   layout 'message'
 
   def new
@@ -19,5 +20,12 @@ class MessagesController < ApplicationController
       subject: nil,
       body: nil
     }
+  end
+
+private
+  def require_user_address
+    if current_user.present? && current_user.address.blank?
+      redirect_to edit_user_path current_user
+    end
   end
 end
