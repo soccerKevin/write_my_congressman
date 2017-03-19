@@ -13,6 +13,6 @@ class UsersController < ApplicationController
 
 private
   def user_params
-    params.require(:user).permit(address_attributes: [:line, :city, :state, :zip])
+    params.require(:user).permit address_attributes: [:line, :city, :state, :zip]
   end
 end

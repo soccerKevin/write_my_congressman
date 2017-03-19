@@ -3,10 +3,16 @@ class MessagesController < ApplicationController
   layout 'message'
 
   def new
-    @user = current_user || User.new
-    @message = @user.messages.build
-    @user.address || @user.build_address
-    @legislators = @user.legislators.reject{ |l| %w{trump pence}.include? l.last_name.downcase }
+    render_message
+  end
+
+  def edit
+    render_message message: Message.find(params[:id])
+  end
+
+  def create
+    message = Message.new message_params
+    message.save ? thank_you : render_message(message)
   end
 
   helper_method def defaults
@@ -23,6 +29,19 @@ class MessagesController < ApplicationController
   end
 
 private
+
+  def message_params
+    params.require(:message).permit :name, :email, :address_line, :city, :state, :zip, :subject, :body, :legislator_ids
+  end
+
+  def render_message(message: nil)
+    @user = current_user || User.new
+    @user.address || @user.build_address
+    message ||= @user.messages.build
+    @message = message
+    @legislators = @user.legislators.reject{ |l| %w{trump pence}.include? l.last_name.downcase }
+  end
+
   def require_user_address
     if current_user.present? && current_user.address.blank?
       redirect_to edit_user_path current_user

@@ -1,3 +1,5 @@
-.message_container
-  = render partial: 'users/edit', locals: { user: @user, remote: true }
-  = render partial: 'messages/form'
+.message_container.container
+  .message_form
+    = render partial: 'messages/form'
+
+  .template_container style="min-width: 30px;"
