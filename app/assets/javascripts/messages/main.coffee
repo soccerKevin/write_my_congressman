@@ -1,6 +1,6 @@
 class @Message
   constructor: ->
-    @user_form = new Form '.user_info form'
+    @user_form = new UserForm '.message_form form'
 
 $ ->
   window.message = new Message()
