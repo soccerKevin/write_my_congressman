@@ -1,5 +1,5 @@
 class @URI
-  constructor: (uri)->
+  constructor: (uri='')->
     [@path, temp] = uri.split '?'
     [query, hash] = if temp then temp.split '#' else ['', '']
     @hash = @parseHash hash
@@ -9,6 +9,7 @@ class @URI
     for key of query
       if query.hasOwnProperty key
         @query[key] = query[key]
+    @
 
   parseQuery: (query) ->
     return {} if query.blank()
@@ -30,8 +31,10 @@ class @URI
     @query = ''
 
   replaceHistory: ->
-    uri = "#{@path}#{@buildQuery()}#{@buildHash()}"
-    history.pushState null, null, uri
+    history.pushState null, null, @fullURI()
+
+  fullURI: ->
+    "#{@path}#{@buildQuery()}#{@buildHash()}"
 
   buildQuery: ->
     return '' if Object.keys(@query).length < 1

@@ -16,6 +16,11 @@ class @Form
   url: ->
     @element.attr 'action'
 
+  field_values: (group_selector='')->
+    Array.from(@fields(group_selector).map (index, field)->
+      [field.name(), field.value()]
+    ).to_hash()
+
   fields: (group_selector='')->
     return @fields_all() if group_selector.is_empty()
     @fields_all().filter (index, field)->

@@ -5,12 +5,6 @@ class @MessageForm extends Form
 
   address_handler: ->
     @element.find('.address').on 'field.change', (e, field)=>
-      fields = @fields '.address'
-      for field in fields
+      for field in @fields '.address'
         return false unless field.is_valid()
-      field_values = Array.from(fields.map (index, field)->
-        [field.name(), field.value()]
-      ).to_hash()
-      debugger
-
-  dlegislators_from_address: ->
+      uri = new URI('/address/legislators').addQuery @field_values('.address')
