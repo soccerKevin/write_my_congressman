@@ -35,6 +35,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'nokogiri'
   gem 'sqlite3'
+  gem 'domp'
 end
 
 group :development do

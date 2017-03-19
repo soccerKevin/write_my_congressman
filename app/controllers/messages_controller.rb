@@ -8,16 +8,16 @@ class MessagesController < ApplicationController
     @legislators = @user.legislators.reject{ |l| %w{trump pence}.include? l.last_name.downcase }
   end
 
-  helper_method def placeholders
-    @placeholders = {
-      name: current_user&.name || true,
-      email: current_user&.email || true,
-      address_line: current_user&.address&.line || 'Address',
-      city: current_user&.address&.city || true,
-      state: current_user&.address&.state || true,
-      zip: current_user&.address&.zip || true,
-      subject: true,
-      body: true
+  helper_method def defaults
+    @defaults = {
+      name: current_user&.name,
+      email: current_user&.email,
+      address_line: current_user&.address&.line,
+      city: current_user&.address&.city,
+      state: current_user&.address&.state,
+      zip: current_user&.address&.zip,
+      subject: nil,
+      body: nil
     }
   end
 end

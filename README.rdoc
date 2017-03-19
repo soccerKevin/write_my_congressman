@@ -1,12 +1,10 @@
 == README
 
 ##SETUP
-brew install docker
-
 install postgresql
 
 rake db:migrate
-rake create_legislators
+rake legislators:create
 
 ### Server
 localhost (for now)

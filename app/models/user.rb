@@ -15,8 +15,9 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :address
 
-  validates_presence_of :name, :address, :email
-  validates_associated :address
+  validates_presence_of :name, :email
+  validates_presence_of :address, on: :update
+  validates_associated :address, on: :update
 
   def self.create_from_omniauth(params)
     info = params['info']
