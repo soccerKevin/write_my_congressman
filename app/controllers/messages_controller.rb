@@ -11,14 +11,20 @@ class MessagesController < ApplicationController
   end
 
   def create
-    message = Message.new message_params
-    message.save ? thank_you : render_message(message)
+    @message = Message.new message_params
+    @message.save ? thank_you : render_message(@message)
+  end
+
+  def thank_you
+    render 'messages/thank_you'
   end
 
 private
 
   def message_params
-    params.require(:message).permit :name, :email, :address_line, :city, :state, :zip, :subject, :body, :legislator_ids
+    pars = params.require(:message).permit :name, :email, :address_line, :city, :state, :zip, :subject, :body, :legislator_ids
+    pars[:legislator_ids] = pars[:legislator_ids].split ','
+    pars
   end
 
   def render_message(message: nil)
