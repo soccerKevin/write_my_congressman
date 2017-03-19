@@ -5,6 +5,7 @@ install postgresql
 
 rake db:migrate
 rake legislators:create
+rake OAuth:create_providers
 
 ### Server
 localhost (for now)

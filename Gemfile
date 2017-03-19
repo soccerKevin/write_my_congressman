@@ -35,7 +35,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'nokogiri'
   gem 'sqlite3'
-  gem 'domp'
 end
 
 group :development do
@@ -44,6 +43,7 @@ group :development do
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'domp'
 end
 
 group :test do
