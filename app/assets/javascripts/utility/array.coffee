@@ -34,5 +34,17 @@ Array::group = (func)->
 Array::is_empty = ->
   @length < 1
 
+Array::blank = ->
+  @is_empty()
+
+Array::not_empty = ->
+  !@is_empty()
+
 Array::present = ->
   @length > 0
+
+Array::to_hash = ->
+  h = {}
+  for value, index in @ by 2
+    h[@[index]] = @[index + 1]
+  h
