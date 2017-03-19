@@ -13,8 +13,14 @@ class @FormField
   value: ->
     @input().val()
 
+  is_valid: ->
+    !@is_empty()
+
   is_empty: ->
     @value().is_empty()
+
+  has_parent: (elem_selector)->
+    @container.parents(elem_selector).length > 0
 
   handlers: ->
     @container.on 'keyup', (e)=>

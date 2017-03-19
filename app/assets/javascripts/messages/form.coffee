@@ -2,7 +2,6 @@ class @Form
   constructor: (element)->
     @element = $(element)
     @fields()
-    @base_handlers()
 
   ajax_save: ->
     $.post(
@@ -17,7 +16,14 @@ class @Form
   url: ->
     @element.attr 'action'
 
-  fields: ->
+  fields: (group_selector='')->
+    return @fields_all() if group_selector.is_empty()
+    @fields_all().filter (index, field)->
+      field.has_parent group_selector
+
+  #private
+  fields_all: (reset=false)->
+    @fields_cache = null if reset
     @fields_cache ||= @element.find('.field').map (index, field)=>
       new FormField field
 
@@ -35,18 +41,11 @@ class @Form
   rails_save: ->
     @element.find('input[type=sumbit]').click()
 
-  data: ->
+  data: (fields=@fields)->
     data = new Data()
-    @fields().map (index, field)->
+    fields.map (index, field)->
       data.add_field_name field.name(), field.value()
     JSON.parse JSON.stringify data.hash
-
-  base_handlers: ->
-    @save_handler()
-
-  save_handler: ->
-    @element.on 'field.change', (field)=>
-      @save() unless @has_empty_field()
 
   class Data
     constructor: ->
