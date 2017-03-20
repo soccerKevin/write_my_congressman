@@ -27,8 +27,13 @@ class Address < ActiveRecord::Base
   end
 
   def legislators
+    begin
+      sa = street_address
+    rescue
+      return []
+    end
     require "#{Rails.root}/lib/vendor_api/google_civic_api"
-    legislator_names = VendorAPI::GoogleCivic::Officials.names_from_address street_address
+    legislator_names = VendorAPI::GoogleCivic::Officials.names_from_address sa
     last_names = legislator_names.map{ |name| name.split(' ').last }
     @legislators = Legislator.where(last_name: last_names)
   end
