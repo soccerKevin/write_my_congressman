@@ -10,7 +10,7 @@ class @MessageForm extends Form
       uri = new URI('/messages/address')
       $.get( uri.fullURI(), @data(@fields('.address')))
         .done( (data, status, response)->
-          console.log "done data: ", data
+          $('.legislator_container .legislators').empty().append $(data.html)
         ).fail (response, status, message)->
           console.log "fail: ", response
 

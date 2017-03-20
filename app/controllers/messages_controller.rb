@@ -26,7 +26,13 @@ class MessagesController < ApplicationController
 
     if address.valid?
       legislators = address.legislators
-      return render json: legislators.to_json, status: 200 if legislators.length > 0
+      if legislators.length > 0
+        return render json: {
+            data: legislators.to_json,
+            html: render_to_string(partial: 'messages/legislator', layout: false, collection: legislators)
+          },
+          status: 200
+      end
     end
 
     render json: { errors: @model.errors.full_messages }
