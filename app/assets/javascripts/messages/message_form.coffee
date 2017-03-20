@@ -8,3 +8,4 @@ class @MessageForm extends Form
       for field in @fields '.address'
         return false unless field.is_valid()
       uri = new URI('/address/legislators').addQuery @field_values('.address')
+
