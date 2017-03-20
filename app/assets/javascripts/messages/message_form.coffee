@@ -7,5 +7,10 @@ class @MessageForm extends Form
     @element.find('.address').on 'field.change', (e, field)=>
       for field in @fields '.address'
         return false unless field.is_valid()
-      uri = new URI('/address/legislators').addQuery @field_values('.address')
+      uri = new URI('/messages/address')
+      $.get( uri.fullURI(), @data(@fields('.address')))
+        .done( (data, status, response)->
+          console.log "done data: ", data
+        ).fail (response, status, message)->
+          console.log "fail: ", response
 

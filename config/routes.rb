@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :legislators, only: :index
   resources :messages, only: [:new, :edit, :create]
+  get 'messages/address', as: :message_address, defaults: { format: :json }
   root 'messages#new', as: :home
 end

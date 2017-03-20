@@ -26,6 +26,13 @@ class Address < ActiveRecord::Base
     alias :from_street_address :from_line
   end
 
+  def legislators
+    require "#{Rails.root}/lib/vendor_api/google_civic_api"
+    legislator_names = VendorAPI::GoogleCivic::Officials.names_from_address street_address
+    last_names = legislator_names.map{ |name| name.split(' ').last }
+    @legislators = Legislator.where(last_name: last_names)
+  end
+
   def street_address
     @street_address ||= StreetAddress::US.parse "#{line}, #{city}, #{state} #{zip}"
   end
