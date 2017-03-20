@@ -7,10 +7,16 @@ class @MessageForm extends Form
     @element.find('.address').on 'field.change', (e, field)=>
       for field in @fields '.address'
         return false unless field.is_valid()
-      uri = new URI('/messages/address')
-      $.get( uri.fullURI(), @data(@fields('.address')))
-        .done( (data, status, response)->
-          $('.legislator_container .legislators').empty().append $(data.html)
-        ).fail (response, status, message)->
-          console.log "fail: ", response
+      @legislators_from_address()
 
+  legislators_from_address: ->
+    uri = new URI('/messages/address')
+    $.get( uri.fullURI(), @data(@fields('.address')))
+      .done( (data, status, response) =>
+        @replace_legislators data.html
+      ).fail (response, status, message) =>
+        console.log "fail: ", response
+
+  replace_legislators: (html)->
+    $legs = $(html).not('.donald_trump').not('.mike_pence')
+    $('.legislator_container .legislators').empty().append $legs

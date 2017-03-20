@@ -1,4 +1,4 @@
-div class="legislator #{legislator.first_name}_#{legislator.last_name} #{legislator.party.downcase}"
+div class="legislator #{legislator.name.downcase.gsub(' ', '_')} #{legislator.party.downcase}"
   figure
     = image_tag asset_path "legislators/#{legislator.image_name}"
 
