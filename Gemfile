@@ -25,6 +25,7 @@ gem 'mechanize'
 gem 'human_name_parser'
 gem 'rails_12factor'
 gem 'paper_trail'
+gem 'html5_validators'
 
 group :production do
   gem 'pg'
@@ -42,6 +43,7 @@ group :development do
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'domp'
 end
 
 group :test do

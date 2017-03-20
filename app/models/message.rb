@@ -1,6 +1,5 @@
 class Message < ActiveRecord::Base
-  belongs_to :address
-  belongs_to :user
-
-  has_many :legislators, through: :user
+  include ActiveModel::Validations
+  has_and_belongs_to_many :legislators
+  validates_presence_of :subject, :body, :name, :email, :address_line, :city, :state, :zip
 end

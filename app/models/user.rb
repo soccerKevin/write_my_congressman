@@ -1,6 +1,7 @@
 require 'human_name_parser'
 
 class User < ActiveRecord::Base
+  include ActiveModel::Validations
   has_paper_trail
 
   has_many :authentications, class_name: 'UserAuthentication', dependent: :destroy
@@ -14,8 +15,9 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :address
 
-  # validates :first_name, :last_name, :address, :email, presence: true
-  validates_associated :address, unless: :guest?
+  validates_presence_of :name, :email
+  validates_presence_of :address, on: :update
+  validates_associated :address, on: :update
 
   def self.create_from_omniauth(params)
     info = params['info']
@@ -28,11 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def legislators
-    return [] unless self.address.persisted?
-    require "#{Rails.root}/lib/vendor_api/google_civic_api"
-    legislator_names = VendorAPI::GoogleCivic::Officials.names_from_address self.address.street_address
-    last_names = legislator_names.map{ |name| name.split(' ').last }
-    @legislators = Legislator.where(last_name: last_names)
+    address.legislators
   end
 
   def parser
@@ -45,17 +43,5 @@ class User < ActiveRecord::Base
 
   def last_name
     parser&.last
-  end
-
-  def guest?
-    !!guest
-  end
-
-  def name
-    read_attribute(:name) unless guest?
-  end
-
-  def email
-    read_attribute(:name) unless guest?
   end
 end

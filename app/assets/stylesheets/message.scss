@@ -1,93 +1,98 @@
 .message_container{
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  margin-top: 1.5rem;
-  max-width: 100rem;
-
   label:after{
     content: ':';
   }
 
-  .legislator_container{
-    flex-basis: 65%;
-
-    .legislators{
-      .legislator{
-        max-width: 32%;
-        margin-right: 1%;
-
-        &:last-child{ margin-right: 0; }
-      }
-    }
-  }
-
-  .user_info{
-    flex-basis: 35%;
-    max-width: 22rem;
-
-    .field{
-      display: flex;
-      justify-content: space-between;
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-
-      label{
-        margin-right: 0.8rem;
-        min-width: 7rem;
-      }
-
-      input{
-        min-width: 15rem;
-        border: none;
-        border-bottom: solid 1px #999;
-      }
-
-      select{
-        border: none;
-
-        optgroup{
-          min-width: 15rem;
-        }
-      }
-    }
-
-    .address{
-      width: 100%;
-
-      .field{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-  }
-
-  .message_container{
-    flex-basis: 65%;
-
+  .message_form{
     form{
       width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      margin-top: 1.5rem;
+      max-width: 100rem;
 
-      .field{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 1rem;
+      .legislator_container{
+        flex-basis: 65%;
 
-        label{
-          font-size: 1.7rem;
+        .legislators{
+          justify-content: space-between;
+
+          .legislator{
+            flex-basis: 31%;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+
+            &:last-child{ margin-right: 0; }
+          }
+        }
+      }
+
+      .user_info{
+        flex-basis: 35%;
+        max-width: 22rem;
+
+        .field{
+          display: flex;
+          justify-content: space-between;
+          font-size: 1.4rem;
+          margin-bottom: 0.5rem;
+
+          label{
+            margin-right: 0.8rem;
+            min-width: 7rem;
+          }
+
+          input{
+            min-width: 15rem;
+            border: none;
+            border-bottom: solid 1px #999;
+          }
+
+          select{
+            border: none;
+
+            optgroup{
+              min-width: 15rem;
+            }
+          }
         }
 
-        input{
-          width: 84.5%;
-        }
+        .address{
+          width: 100%;
 
-        textarea{
-          min-width: 85%;
-          min-height: 20rem;
-          max-width: 20rem;
+          .field{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+      }
+
+      .body_section{
+        flex-basis: 65%;
+        margin-top: 1.5rem;
+
+        .field{
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 1rem;
+
+          label{
+            font-size: 1.7rem;
+          }
+
+          input{
+            width: 84.5%;
+          }
+
+          textarea{
+            min-width: 85%;
+            min-height: 20rem;
+            max-width: 20rem;
+          }
         }
       }
     }

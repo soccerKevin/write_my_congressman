@@ -6,13 +6,13 @@ class UsersController < ApplicationController
 
   def update
     current_user.update! user_params
-    redirect_to '/legislators'
+    redirect_to new_message_path
   rescue Exception => e
     render action: :edit
   end
 
 private
   def user_params
-    params.require(:user).permit(address_attributes: [:line, :city, :state, :zip])
+    params.require(:user).permit address_attributes: [:line, :city, :state, :zip]
   end
 end

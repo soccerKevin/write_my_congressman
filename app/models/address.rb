@@ -1,12 +1,13 @@
 require 'pry'
 
 class Address < ActiveRecord::Base
+  include ActiveModel::Validations
   has_paper_trail
 
   belongs_to :legislator
   belongs_to :user
 
-  validates :line, :city, :state, :zip, presence: true
+  validates_presence_of :line, :city, :state, :zip
 
   class << self
     def from_line(address)
@@ -23,6 +24,18 @@ class Address < ActiveRecord::Base
     end
 
     alias :from_street_address :from_line
+  end
+
+  def legislators
+    begin
+      sa = street_address
+    rescue
+      return []
+    end
+    require "#{Rails.root}/lib/vendor_api/google_civic_api"
+    legislator_names = VendorAPI::GoogleCivic::Officials.names_from_address sa
+    last_names = legislator_names.map{ |name| name.split(' ').last }
+    @legislators = Legislator.where(last_name: last_names)
   end
 
   def street_address
