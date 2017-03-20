@@ -17,12 +17,12 @@ class @Form
     @element.attr 'action'
 
   field_values: (group_selector='')->
-    Array.from(@fields(group_selector).map (index, field)->
+    @fields(group_selector).map( (index, field)->
       [field.name(), field.value()]
     ).to_hash()
 
   fields: (group_selector='')->
-    return @fields_all() if group_selector.is_empty()
+    return @fields_all().get() if group_selector.is_empty()
     @fields_all().filter( (index, field)->
       field.has_parent group_selector
     ).get()
@@ -47,29 +47,7 @@ class @Form
   rails_save: ->
     @element.find('input[type=sumbit]').click()
 
-  data: (fields=@fields)->
-    data = new Data()
-    fields.map (index, field)->
-      data.add_field_name field.name(), field.value()
-    JSON.parse JSON.stringify data.hash
-
-  class Data
-    constructor: ->
-      @hash = {}
-
-    add_field_name: (name, value)->
-      elements = name.replace_all(']', '').split('[')
-      obj = @hash
-
-      index = 0
-      for elem in elements
-        if obj.hasOwnProperty elem
-          obj = obj[elem]
-        else
-          if elements[index + 1]
-            obj[elem] = {}
-            obj = obj[elem]
-          else
-            obj[elem] = value
-        index++
-
+  data: (fields=@fields())->
+    fields.map( (field)->
+      [field.name(), field.value()]
+    ).to_hash()

@@ -45,6 +45,6 @@ Array::present = ->
 
 Array::to_hash = ->
   h = {}
-  for value, index in @ by 2
-    h[@[index]] = @[index + 1]
+  for pair in @
+    h[pair.first()] = pair.last()
   h
