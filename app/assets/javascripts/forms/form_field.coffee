@@ -10,8 +10,8 @@ class @FormField
   name: ->
     @input().attr 'name'
 
-  value: ->
-    @input().val()
+  value: (value=null)->
+    if value then @input().attr('value', value) else @input().val()
 
   is_valid: ->
     !@is_empty()

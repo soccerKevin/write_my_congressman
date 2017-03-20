@@ -23,8 +23,9 @@ class @Form
 
   fields: (group_selector='')->
     return @fields_all() if group_selector.is_empty()
-    @fields_all().filter (index, field)->
+    @fields_all().filter( (index, field)->
       field.has_parent group_selector
+    ).get()
 
   #private
   fields_all: (reset=false)->

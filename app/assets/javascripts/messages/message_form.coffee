@@ -2,6 +2,7 @@ class @MessageForm extends Form
   constructor: (element)->
     super element
     @address_handler()
+    @save_handler()
 
   address_handler: ->
     @element.find('.address').on 'field.change', (e, field)=>
@@ -20,3 +21,12 @@ class @MessageForm extends Form
   replace_legislators: (html)->
     $legs = $(html).not('.donald_trump').not('.mike_pence')
     $('.legislator_container .legislators').empty().append $legs
+
+  save_handler: ->
+    @element.find('input[type=submit]').on 'click', (e)=>
+      @fields('.legislators').first().value @legislator_ids()
+
+  legislator_ids: ->
+    ids = @element.find('.legislators .legislator').map( (index, elem)=>
+      $(elem).attr('data-id')
+    ).get().join(',')
