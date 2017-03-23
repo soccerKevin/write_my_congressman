@@ -12,7 +12,12 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new message_params
-    @message.save ? thank_you : render_message(@message)
+    if @message.save
+      @message.send_email
+      thank_you
+    else
+      render_message(@message)
+    end
   end
 
   def thank_you
