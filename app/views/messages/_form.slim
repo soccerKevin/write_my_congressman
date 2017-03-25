@@ -31,7 +31,7 @@
 
   .body_section
     .field
-      = message.text_field :subject, value: d[:subject], placeholder: true
+      = message.select :subject, ::Legislators::Email.user_options, include_blank: 'Pick a Topic'
 
     .field
       = message.text_area :body, value: d[:body], placeholder: true
