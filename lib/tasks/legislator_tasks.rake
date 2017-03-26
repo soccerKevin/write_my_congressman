@@ -41,9 +41,19 @@ namespace :legislators do
   task all_form_fields: :environment do
     bio_ids = Legislator.all.map{ |l| l[:bio_id] }[0...-1]
     topics = bio_ids.each_slice(10).map do |ids|
-      VendorAPI::CongressForms.get_elements_hash ids
+      VendorAPI::CongressForms.get_topics ids
     end.map{ |t| t.to_h.values }.flatten.uniq.join(',')
+    binding.pry
     File.open("./notes/topics.txt", 'w'){ |f| f.write topics }
+  end
+
+  task :form_fields, [:bio_id] => :environment do |t, args|
+    fields = if args[:bio_id].nil?
+      bio_ids = Legislator.all.map{ |l| l[:bio_id] }[0...-1]
+      bio_ids.each_slice(10).map{ |ids| VendorAPI::CongressForms.get_required_fields ids }
+    else
+      VendorAPI::CongressForms.get_required_fields args[:bio_id]
+    end
   end
 end
 

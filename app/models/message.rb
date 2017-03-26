@@ -3,10 +3,31 @@ class Message < ActiveRecord::Base
   has_and_belongs_to_many :legislators
   validates_presence_of :subject, :body, :name, :email, :address_line, :city, :state, :zip
 
-  def send_email()
-    legislators.each do |leg|
-      form = VendorAPI::CongressForms.get_form leg.bio_id
-      binding.pry
+  class << self
+    def form_topics
+      Legislators::Email.user_options
     end
+  end
+
+  def send_email()
+    legislators.each{ |l| Legislators::EmailForm.new(self, l).fillout_and_send }
+  end
+
+  def first_name
+    parsed_name&.first
+  end
+
+  def last_name
+    parsed_name&.last
+  end
+
+  def address
+    @address ||= Address.new line: address_line, city: city, state: state, zip: zip
+  end
+
+private
+
+  def parsed_name
+    @parsed_name = HumanNameParser.parse name
   end
 end

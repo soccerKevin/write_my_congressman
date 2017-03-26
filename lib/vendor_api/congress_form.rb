@@ -3,10 +3,30 @@ require 'pry'
 require_relative 'api'
 
 module VendorAPI
-  class CongressForms < API
+  class CongressForm < API
     @@ROOT = 'https://congressforms.eff.org'
     @@KEY = nil
     @@KEY_NAME = nil
+
+    def initialize(bio_id)
+      r = self.class.get_form bio_id
+      raise "Cannot find form" if r.empty?
+      @bio_id = r.first.first
+      @fields = r.first.last.first.last
+    end
+
+    def field_names
+      @fields.map{ |f| f['value'].slice(1..-1).downcase }
+    end
+
+    def field_options(field_name)
+      options = field(field_name)['options_hash']
+      options.is_a?(Hash) ? options.keys : options
+    end
+
+    def field(name)
+      @fields.select{ |field| field['value'].downcase.include? name.downcase }.first
+    end
 
     class << self
       def get_form(bio_ids)
@@ -26,14 +46,14 @@ module VendorAPI
         return []
       end
 
-      def fill_out_form()
-
+      def get_required_fields(bio_ids)
+        get_form(bio_ids).map{ |k,v| v['required_actions'] }
       end
 
-      def get_elements_hash(bio_ids)
+      def get_topics(bio_ids)
         get_form(bio_ids).map do |k,v|
           begin
-            topics = v['required_actions'].select{|field| field['value'].downcase.include?('topic') }.first['options_hash']
+            topics = v['required_actions'].select{ |field| field['value'].downcase.include?('topic') }.first['options_hash']
             t = (topics.class == Hash ? topics.keys : topics).flatten
           rescue Exception => e
             t = nil

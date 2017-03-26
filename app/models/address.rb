@@ -37,6 +37,22 @@ class Address < ActiveRecord::Base
     @legislators = Legislator.where(last_name: last_names)
   end
 
+  def street
+    line
+  end
+
+  def zip_base
+    street_address.postal_code
+  end
+
+  def zip_full
+    "#{street_address.postal_code}-#{street_address.postal_code_ext}"
+  end
+
+  def zip_ext
+    street_address.postal_code_ext
+  end
+
   def street_address
     @street_address ||= StreetAddress::US.parse "#{line}, #{city}, #{state} #{zip}"
   end
