@@ -3,6 +3,7 @@ module Legislators
 
     def initialize(message, legislator)
       @message = message
+      @legislator = legislator
       @form = VendorAPI::CongressForm.new legislator.bio_id
     end
 
@@ -54,6 +55,10 @@ module Legislators
       Legislators::Email.match_topic @message.subject, possibles
     end
 
+    def subject(possibles)
+      Legislators::Email.match_topic @message.subject, @form.field_options('topic')
+    end
+
     def address_state_postal_abbrev(possibles)
       @message.address.zip_base
     end
@@ -66,15 +71,15 @@ module Legislators
       @message.address.zip_full
     end
 
-    def fillout_and_send
-      fields = @form.field_names
-      subject = fields.delete 'subject'
-      form = fields.map do |field|
+    def fillout
+      @filled_form ||= @form.field_names.map do |field|
         [field, self.send(field.to_sym, @form.field_options(field))]
       end.to_h
-      form['subject'] = form['topic']
-      binding.pry
     end
 
+    def fillout_and_send(completed_form=nil)
+      completed_form ||= fillout
+      @form.send_out completed_form
+    end
   end
 end

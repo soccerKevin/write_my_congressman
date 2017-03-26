@@ -15,6 +15,10 @@ module VendorAPI
       @fields = r.first.last.first.last
     end
 
+    def send_form(bio_id, form)
+
+    end
+
     def field_names
       @fields.map{ |f| f['value'].slice(1..-1).downcase }
     end
@@ -28,11 +32,23 @@ module VendorAPI
       @fields.select{ |field| field['value'].downcase.include? name.downcase }.first
     end
 
+    def send_out(completed_form)
+      self.class.send_form @bio_id, completed_form
+    end
+
     class << self
       def get_form(bio_ids)
         path = '/retrieve-form-elements'
         headers = { 'Content-Type': 'application/x-www-form-urlencoded' }
         body = { 'bio_ids' => [bio_ids].flatten }
+        response = post path, headers: headers, body: body
+      end
+
+      def send_form(bio_id, completed_fields)
+        path = '/fill-out-form'
+        headers = { 'Content-Type': 'application/x-www-form-urlencoded' }
+        fields = format_field_keys completed_fields
+        body = { 'bio_id' => bio_id, fields: fields }
         response = post path, headers: headers, body: body
       end
 
@@ -44,6 +60,14 @@ module VendorAPI
         topic_names = array1.concat(array2).uniq
       rescue
         return []
+      end
+
+      def format_field_keys(fields)
+        fields.map do |key, value|
+          formatted_key = key.upcase
+          formatted_key.prepend('$') unless formatted_key.first == '$'
+          [formatted_key, value]
+        end.to_h
       end
 
       def get_required_fields(bio_ids)
