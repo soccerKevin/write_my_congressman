@@ -14,13 +14,23 @@ class MessagesController < ApplicationController
     @message = Message.new message_params
     if @message.save
       @message.send_email
-      thank_you
+      if @message.sent?
+        thank_you_page
+      elsif @message.captchas.any?
+        binding.pry
+      else
+        error_page
+      end
     else
       render_message(@message)
     end
   end
 
-  def thank_you
+  def error_page(errors=false)
+    render 'message/error'
+  end
+
+  def thank_you_page
     render 'messages/thank_you'
   end
 

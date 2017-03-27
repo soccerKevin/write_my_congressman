@@ -79,7 +79,21 @@ module Legislators
 
     def fillout_and_send(completed_form=nil)
       completed_form ||= fillout
-      @form.send_out completed_form
+      @response = @form.send_out completed_form
+    end
+
+    def sent?
+      @response && @response['status'] == 'success'
+    end
+
+    def captcha
+      return nil unless @response['status']&.include? 'captcha'
+      @response['url']
+    end
+
+    def error
+      return nil unless @response
+      @response['error']
     end
   end
 end

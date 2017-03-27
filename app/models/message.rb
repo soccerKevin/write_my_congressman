@@ -9,8 +9,21 @@ class Message < ActiveRecord::Base
     end
   end
 
-  def send_email()
-    legislators.each{ |l| Legislators::EmailForm.new(self, l).fillout_and_send }
+  def send_email
+    @emails = legislators.map do |l|
+      email = Legislators::EmailForm.new self, l
+      email.fillout_and_send
+      email
+    end
+  end
+
+  def sent?
+    captchas.empty? && @emails.select{ |e| e.sent? }.any?
+  end
+
+  def captchas
+    return [] unless @emails
+    @emails.map{ |e| e.captcha }.compact
   end
 
   def first_name
