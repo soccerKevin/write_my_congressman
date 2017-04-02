@@ -44,7 +44,7 @@ module Legislators
     end
 
     def name_prefix(possibles)
-      possibles.first
+      possibles&.first || ''
     end
 
     def address_county(possibles)

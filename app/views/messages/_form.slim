@@ -3,9 +3,10 @@
   .legislator_container
     h3 Who would you like to contact
 
+    .field.hidden
+      = message.text_field :legislator_ids, class: 'legislator_ids hidden', value: @legislators.map{ |l| l.id }.join(',')
+
     .legislators
-      .field.hidden
-        = message.text_field :legislator_ids, class: 'legislator_ids hidden', value: @legislators.map{ |l| l.id }.join(',')
 
       = render partial: 'messages/legislator', collection: @legislators, as: :legislator
 
