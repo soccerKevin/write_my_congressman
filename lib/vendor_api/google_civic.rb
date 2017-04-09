@@ -24,6 +24,7 @@ module VendorAPI
         end
 
         def whitelist_legislators(response)
+          return [] if response['officials'].nil?
           officials = response['officials'].select do |official|
             @@WHITELISTED_OFFICES.map do |office|
               next unless official['urls']
