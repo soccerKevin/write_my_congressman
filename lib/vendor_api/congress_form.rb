@@ -11,8 +11,8 @@ module VendorAPI
     def initialize(bio_id)
       r = self.class.get_form bio_id
       raise "Cannot find form" if r.empty?
-      @bio_id = r.first.first
-      @fields = r.first.last.first.last
+      @bio_id = r.keys.first
+      @fields = r.first.last['required_actions']
     end
 
     def send_form(bio_id, form)
