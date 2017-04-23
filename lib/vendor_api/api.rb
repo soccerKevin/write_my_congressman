@@ -6,7 +6,7 @@ module VendorAPI
 
     class << self
       def get(path, query_hash)
-        query_hash[@@KEY_NAME.downcase.to_sym] = @@KEY
+        query_hash[@@KEY_NAME.downcase.to_sym] = @@KEY if @@KEY_NAME && @@KEY
         HTTParty.get "#{@@ROOT}#{path}?#{query_hash.to_query}"
       end
 

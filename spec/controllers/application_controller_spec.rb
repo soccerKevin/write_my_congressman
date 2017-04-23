@@ -22,9 +22,9 @@ describe ApplicationController do
       login_user_with_address
     end
 
-    it 'should redirect to /legislators' do
+    it 'should redirect to /messages/new' do
       route = controller.send :after_sign_in_path_for, @user
-      expect(route).to eq '/legislators'
+      expect(route).to eq '/messages/new'
     end
   end
 end

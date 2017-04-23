@@ -24,7 +24,7 @@ class @MessageForm extends Form
 
   save_handler: ->
     @element.find('input[type=submit]').on 'click', (e)=>
-      @fields('.legislators').first().value @legislator_ids()
+      @fields('.legislator_container').first().value @legislator_ids()
 
   legislator_ids: ->
     ids = @element.find('.legislators .legislator').map( (index, elem)=>

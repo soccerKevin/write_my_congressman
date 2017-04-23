@@ -2,7 +2,7 @@ require 'pp'
 require 'pry'
 require 'httparty'
 require 'street_address'
-require_relative '../vendor_api/google_civic_api.rb'
+require_relative '../vendor_api/google_civic.rb'
 
 namespace :google_civic do
   task :get_address, [:address] => :environment do |t, args|
