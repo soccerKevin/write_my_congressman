@@ -39,6 +39,7 @@ module LegislatorFactory
     address = Address.from_line term['address']
     phone = Phone.create!({number: term['phone']})
     fax = Phone.create!({number: term['fax']}) rescue fax = nil
+    contact_form_url = term['contact_form'].nil? ? "#{term['url']}/contact" : term['contact_form']
 
     social = json['social']
     if social
@@ -71,7 +72,7 @@ module LegislatorFactory
       address: address,
       phone: phone,
       fax: fax,
-      contact_form_url: term['form'],
+      contact_form_url: contact_form_url,
       # social
       twitter_name: twitter_name,
       facebook_name: facebook_name,
